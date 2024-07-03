@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login</title>
+    <title>Jubail Job HUB | Login</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{ asset('admin/img/icon.ico') }}" type="image/x-icon"/>
 
@@ -47,10 +47,10 @@
 <div class="wrapper wrapper-login">
     <div class="container container-login animated fadeIn">
         <img style="width: 100%;" src="{{asset('logo.png')}}">
-        <h2 class="text-center text-white  mt-4">Sign In To Admin</h2>
+        <h2 class="text-center text-white mt-4">Sign In To Your Company</h2>
 
         <div class="login-form">
-            <form style="margin:29px 0;" method="POST" action="{{ route('admin.login.submit') }}">
+            <form style="margin:29px 0;" method="POST" action="{{ route('company.login') }}">
                 @csrf
                 <div class="form-group form-floating-label">
                     <input id="username_or_email" value="{{old('username')}}" name="username" type="text" class="form-control input-border-bottom" required>

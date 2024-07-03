@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,6 +11,8 @@ class Company extends Authenticatable
     protected $fillable = ['admin_id', 'fullname', 'email', 'password', 'username', 'company_name', 'industry', 'logo', 'about_company', 'company_size', 'phone_number_1', 'phone_number_2', 'website_url', 'linkedin_url', 'twitter_url', 'founded_at', 'joined_at'];
     protected $dates = ['founded_at', 'joined_at'];
     protected $guard = 'company';
+
+    public $timestamps = false;
 
     public function admin()
     {
@@ -29,5 +32,10 @@ class Company extends Authenticatable
     public function reviews()
     {
         return $this->hasMany(Review::class, 'company_id');
+    }
+
+    public function getImagePathAttribute(): string
+    {
+        return $this->attributes['logo'] ? asset('uploads/' . $this->attributes['logo']) : asset('admin/img/profile.png');
     }
 }

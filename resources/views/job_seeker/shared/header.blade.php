@@ -30,7 +30,7 @@
                                     <ul id="navigation">
                                         <li><a href="/">Home</a></li>
                                         <li><a href="#">Find a Jobs </a></li>
-                                        <li><a href="#">About</a></li>
+                                        <li><a href="#haveCompany">Have A Company ?</a></li>
                                         <li><a href="#">Page</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Blog</a></li>

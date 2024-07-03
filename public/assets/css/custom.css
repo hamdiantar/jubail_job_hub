@@ -49,7 +49,7 @@
       padding-bottom: 40px !important;
 }
 .btn::before {
-  background: #058FF5;
+  background: #73b2ff;
 }
 
 .slider-area .hero__caption h1 {
@@ -129,7 +129,7 @@ hr {
 
 }
 .boxed-btn {
-    background: #058FF5;
+    background: #73b2ff;
     color: #ffffff !important;
     display: inline-block;
     padding: 18px 44px;
@@ -227,4 +227,18 @@ hr {
     font-weight: 600;
     letter-spacing: 0px;
     font-size: 14px;
+}
+.haveCompany {
+    background: #0aba9c;
+    padding: 28px;
+    margin: 68px 5px;
+    border-radius: 10px;
+}
+.haveCompany ul li {
+    list-style: disc;
+}
+.generic-blockquote2 {
+    padding: 16px 25px 20px 5px;
+    background: #fff3f3;
+    border-left: 4px solid #ff0000;
 }

@@ -3,7 +3,8 @@
 @section('content')
     <div class="slider-area ">
         <div class="slider-active">
-            <div class="single-slider slider-height d-flex align-items-center" data-background="{{asset('assets/bg.png')}}">
+            <div class="single-slider slider-height d-flex align-items-center"
+                 data-background="{{asset('assets/bg.png')}}">
                 <div class="container">
                     <div class="row">
                         <div style="    margin-bottom: 400px;" class="col-xl-6">
@@ -258,6 +259,43 @@
             </div>
         </div>
     </section>
+
+    <div class="whole-wrap" id="haveCompany">
+        <div class="container box_1170">
+            <div class="section-top-border haveCompany">
+                <h3 class="mb-30">Join Us and Find the Best Candidates for Your Company</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ asset('assets/img/Join-us.png') }}" alt="Hiring" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20 text-white">
+                        <ul>
+                            <li><strong>Are you looking to hire top talent for your company? Join us and take advantage
+                                    of our platform to post job ads and connect with the best candidates. Our
+                                    user-friendly interface makes it easy for you to manage your job postings and
+                                    applications.</strong><br>
+                            </li>
+                            <li><strong>By registering with us, you'll gain access to a wide pool of job seekers who are
+                                    actively looking for opportunities. Whether you're looking for experienced
+                                    professionals or fresh graduates, our platform has the right candidates for your
+                                    needs.</strong><br>
+                            </li>
+                            <li><strong>Don't miss out on the opportunity to streamline your hiring process and find the
+                                    perfect fit for your company. Click the link below to get started with your
+                                    registration.</strong>
+                            </li>
+                        </ul>
+                        <div class="mt-2 text-center">
+                            <a href="{{ route('company.register') }}" class="btn head-btn1">Register
+                                Your Company</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Featured_job_end -->
     <!-- How  Apply Process Start-->
     <div class="apply-process-area apply-bg">
@@ -278,7 +316,8 @@
                         </div>
                         <div class="process-cap">
                             <h5>1. Search a job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
+                                laborea.</p>
                         </div>
                     </div>
                 </div>
@@ -289,7 +328,8 @@
                         </div>
                         <div class="process-cap">
                             <h5>2. Apply for job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
+                                laborea.</p>
                         </div>
                     </div>
                 </div>
@@ -300,7 +340,8 @@
                         </div>
                         <div class="process-cap">
                             <h5>3. Get your job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
+                                laborea.</p>
                         </div>
                     </div>
                 </div>

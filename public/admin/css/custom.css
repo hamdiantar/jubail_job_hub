@@ -49,3 +49,6 @@
     padding: 1px;
     background: wheat;
 }
+.form-control {
+    border-color: #73b2ff !important;
+}
