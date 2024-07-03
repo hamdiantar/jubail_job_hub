@@ -1,0 +1,52 @@
+.header-area ,.header-sticky.sticky-bar{
+  background: #112546;
+}
+
+.header-area .main-menu ul li a {
+  color: #ffffff;
+}
+.head-btn1 {
+  background: #fffafb;
+
+  border-radius: 5px;
+    text-transform: capitalize;
+  color: #000;
+}
+.head-btn2 {
+  background: none;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.our-services .single-services {
+  border: 1px solid #dafcef;
+  padding: 44px 0;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+  border-radius: 31px;
+  background: #112546;
+}
+.our-services .single-services .services-ion span {
+  font-size: 84px;
+  margin-bottom: 13px;
+  color: #ffffff;
+
+}
+
+.our-services .single-services .services-cap h5 a {
+  color: #ffffff;
+}
+.our-services .single-services .services-cap span {
+  color: #ffffff;
+}
+
+.section-pad-t30 {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+}
+.btn::before {
+  background: #058FF5;
+}

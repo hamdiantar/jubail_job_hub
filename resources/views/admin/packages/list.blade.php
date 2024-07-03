@@ -2,15 +2,13 @@
 
 @section('content')
     <div class="page-inner">
-        <div class="page-header">
-            <h4 class="page-title">Packages [ <span class="badge badge-danger badge-count">{{ $packages->count() }}</span> ]</h4>
-        </div>
+
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">List</h4>
+                        <h4 class="card-title">Packages [ <span class="badge badge-danger badge-count">{{ $packages->count() }}</span> ] | list</h4>
                         <button onclick="window.location.href='{{ route('admin.packages.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
@@ -48,7 +46,7 @@
                                         <td>{{ $package->subscriptions_count }}</td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="{{ route('admin.packages.edit', $package->package_id) }}" class="btn btn-link btn-primary btn-lg" data-toggle="tooltip" title="Edit">
+                                                <a href="{{ route('admin.packages.edit', $package->package_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 @if($package->subscriptions_count == 0)
@@ -56,7 +54,7 @@
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 @else
-                                                    <button type="button" class="btn btn-link btn-danger" data-toggle="tooltip" title="Cannot delete package with subscriptions" disabled>
+                                                    <button type="button" class="btn  btn-danger" data-toggle="tooltip" title="Cannot delete package with subscriptions" disabled>
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 @endif

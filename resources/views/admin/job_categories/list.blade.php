@@ -2,15 +2,13 @@
 
 @section('content')
     <div class="page-inner">
-        <div class="page-header">
-            <h4 class="page-title">Job Categories [ <span class="badge badge-danger badge-count">{{ $jobCategories->count() }}</span> ]</h4>
-        </div>
+
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">List</h4>
+                        <h4 class="card-title">Job Categories [ <span class="badge badge-danger badge-count">{{ $jobCategories->count() }}</span> ] | List</h4>
                         <button onclick="window.location.href='{{ route('admin.job_categories.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
@@ -34,7 +32,7 @@
                                         <td>
                                             <div class="form-button-action">
 
-                                                <a href="{{ route('admin.job_categories.edit', $jobCategory->job_category_id) }}" class="btn btn-link btn-primary btn-lg" data-toggle="tooltip" title="Edit">
+                                                <a href="{{ route('admin.job_categories.edit', $jobCategory->job_category_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
 

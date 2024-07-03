@@ -2,15 +2,13 @@
 
 @section('content')
     <div class="page-inner">
-        <div class="page-header">
-            <h4 class="page-title">Packages</h4>
-        </div>
+
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Edit Package</h4>
+                        <h4 class="card-title">Packages | Edit</h4>
                         <button onclick="window.location.href='{{ route('admin.packages.index') }}'" class="btn btn-icon btn-rounded btn-danger float-right">
                             <i class="fa fa-arrow-right"></i>
                         </button>

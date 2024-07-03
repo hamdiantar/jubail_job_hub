@@ -21,23 +21,44 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/azzara.min.css') }}">
+    <style>
+        .login .wrapper.wrapper-login .container-login, .login .wrapper.wrapper-login .container-signup {
+            width: 400px;
+            background: #112546;
+            padding: 60px 25px;
+            border-radius: 5px;
+             border: none;
+        }
+        .form-floating-label .input-border-bottom+.placeholder {
+            padding: 9px !important;
+            font-size: 12px !important;
+        }
+        .input-border-bottom {
+            border-width: 0 0 1px 0;
+            border-radius: 5px;
+            padding: 10px 7px;
+        }
+        .form-floating-label .form-control.filled+.placeholder, .form-floating-label .form-control:focus+.placeholder, .form-floating-label .form-control:valid+.placeholder {
+            top: -8px;
+        }
+    </style>
 </head>
-<body class="login">
+<body style="background-color: #112546;" class="login">
 <div class="wrapper wrapper-login">
     <div class="container container-login animated fadeIn">
         <img style="width: 100%;" src="{{asset('logo.png')}}">
-        <h3 class="text-center">Sign In To Admin</h3>
+        <h2 class="text-center text-white">Sign In To Admin</h2>
 
         <div class="login-form">
-            <form method="POST" action="{{ route('admin.login.submit') }}">
+            <form style="margin:29px 0;" method="POST" action="{{ route('admin.login.submit') }}">
                 @csrf
                 <div class="form-group form-floating-label">
                     <input id="username_or_email" value="{{old('username')}}" name="username" type="text" class="form-control input-border-bottom" required>
-                    <label for="username_or_email" class="placeholder">Username or Email</label>
+                    <label for="username_or_email" class="placeholder text-primary">Username or Email</label>
                 </div>
                 <div class="form-group form-floating-label">
                     <input id="password" name="password" type="password" class="form-control input-border-bottom" required>
-                    <label for="password" class="placeholder">Password</label>
+                    <label for="password" class="placeholder text-primary">Password</label>
                     <div class="show-password">
                         <i class="flaticon-interface"></i>
                     </div>
@@ -45,7 +66,7 @@
                 <div class="row form-sub m-0">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="rememberme" name="">
-                        <label class="custom-control-label" for="rememberme">Remember Me</label>
+                        <label class="custom-control-label text-primary" for="rememberme">Remember Me</label>
                     </div>
 
                     <a href="#" class="link float-right">Forget Password ?</a>

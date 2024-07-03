@@ -3,11 +3,11 @@
     <div class="sidebar-content">
         <div class="user">
             <div class="avatar-sm float-left mr-2">
-                <img src="{{asset('admin/img/profile.jpg')}}" alt="..." class="avatar-img rounded-circle">
+                <img src="{{asset('admin/img/profile.png')}}" alt="..." class="avatar-img rounded-circle">
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-                    <span>admin<span class="user-level">Administrator</span><span class="caret"></span></span>
+                    <span>{{ Auth::guard('admin')->user()->fullname }}<span class="user-level">Administrator</span><span class="caret"></span></span>
                 </a>
             </div>
         </div>

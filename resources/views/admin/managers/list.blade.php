@@ -2,15 +2,12 @@
 
 @section('content')
     <div class="page-inner">
-        <div class="page-header">
-            <h4 class="page-title">Managers Management [ <span class="badge badge-danger badge-count">{{ $managers->count() }}</span> ]</h4>
-        </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">List</h4>
+                        <h4 class="card-title">Managers Management [ <span class="badge badge-danger badge-count">{{ $managers->count() }}</span> ]  | List</h4>
                         <button onclick="window.location.href='{{ route('admin.managers.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
@@ -37,7 +34,7 @@
                                         <td>
                                             <div class="form-button-action">
 
-                                                <a href="{{ route('admin.managers.edit', $manager->admin_id) }}" class="btn btn-link btn-primary btn-lg" data-toggle="tooltip" title="" data-original-title="Edit">
+                                                <a href="{{ route('admin.managers.edit', $manager->admin_id) }}" class="btn btn-link  btn-lg" data-toggle="tooltip" title="" data-original-title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
 

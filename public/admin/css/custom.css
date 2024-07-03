@@ -1,0 +1,51 @@
+.sidebar .user {
+    margin-top: 52.5px;
+}
+.sidebar .sidebar-wrapper {
+    background-color: #112546;
+}
+.main-header[data-background-color=purple] {
+    background-color: #212f29 !important;
+}
+.main-header[data-background-color=light-blue], .main-header[data-background-color] .logo-header, .main-header[data-background-color=orange] {
+    background-color: #112546 !important;
+}
+.main-header[data-background-color=purple] .navbar-header {
+    background: #112546 !important;
+}
+.sidebar .user .info a>span,
+.sidebar .user .info a>span .user-level
+,.sidebar .nav>.nav-item a i,
+.sidebar .nav>.nav-item a p{
+    color: #fff !important;
+}
+.sidebar .nav>.nav-item.active>a {
+    color: #000000 !important;
+    background: rgb(255 255 255);
+}
+.nav>.nav-item.active>a p,
+.sidebar .nav>.nav-item.active a i{
+    color: #112546 !important;
+}
+.sidebar .nav>.nav-item.active>a p {
+    color: #112546 !important;
+}
+.btn-primary {
+    background: #73b2ff !important;
+    border-color: #73b2ff !important;
+}
+.main-header[data-background-color=red] .navbar-header {
+    background: #112546 !important;
+}
+.btn-link {
+    color: #73b2ff;
+}
+
+.avatar-sm {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 1px;
+    background: wheat;
+}

@@ -1,6 +1,9 @@
 <div class="logo-header">
     <a href="#" class="logo">
-        <img style="width: 100%;" src="{{asset('logo2.png')}}">
+        <img style="    width: 100%;
+    height: 68px;
+    /* margin: auto; */
+    margin-top: 10px;" src="{{asset('logo.png')}}">
     </a>
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
@@ -67,13 +70,13 @@
             <li style="margin-right: 22px;" class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
-                        <img src="{{ asset('admin/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                        <img src="{{ asset('admin/img/profile.png') }}" alt="..." class="avatar-img rounded-circle">
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated fadeIn">
                     <li>
                         <div class="user-box">
-                            <div class="avatar-lg"><img src="{{ asset('admin/img/profile.jpg') }}" alt="image profile" class="avatar-img rounded"></div>
+                            <div class="avatar-lg"><img src="{{ asset('admin/img/profile.png') }}" alt="image profile" class="avatar-img rounded"></div>
                             <div class="u-text">
                                 <h4>{{ Auth::guard('admin')->user()->fullname }}</h4>
                                 <p class="text-muted">{{ Auth::guard('admin')->user()->email }}</p>
