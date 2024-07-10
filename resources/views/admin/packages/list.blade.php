@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Packages [ <span class="badge badge-danger badge-count">{{ $packages->count() }}</span> ] | list</h4>
-                        <button onclick="window.location.href='{{ route('admin.packages.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
+                        <button onclick="window.location.href='{{ route('company.job_ads.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>
@@ -46,11 +46,11 @@
                                         <td>{{ $package->subscriptions_count }}</td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="{{ route('admin.packages.edit', $package->package_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
+                                                <a href="{{ route('company.job_ads.edit', $package->package_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 @if($package->subscriptions_count == 0)
-                                                    <button onclick="confirmDelete('{{ route('admin.packages.destroy', $package->package_id) }}')" type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Remove">
+                                                    <button onclick="confirmDelete('{{ route('company.job_ads.destroy', $package->package_id) }}')" type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Remove">
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 @else

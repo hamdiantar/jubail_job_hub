@@ -28,8 +28,8 @@
                             <div class="main-menu">
                                 <nav class="d-none d-lg-block">
                                     <ul id="navigation">
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="#">Find a Jobs </a></li>
+                                        <li><a href="{{route('job_seeker.home')}}">Home</a></li>
+                                        <li><a href="{{route('job_seeker.job_ads')}}">Find a Jobs</a></li>
                                         <li><a href="#haveCompany">Have A Company ?</a></li>
                                         <li><a href="#">Page</a>
                                             <ul class="submenu">
@@ -45,8 +45,16 @@
                             </div>
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
-                                <a href="#" class="btn head-btn1">Register</a>
-                                <a href="#" class="btn head-btn2">Login</a>
+                                @auth('jobseeker')
+                                    <a href="{{route('job_seeker.profile')}}" class="btn head-btn1 authBTN">
+                                        <i class="fa fa-user"></i> My Profile</a>
+                                    <a id="logout-link" style="color: red;" href="{{route('job_seeker.login')}}" class="btn head-btn2 authBTN">    <i class="fa fa-power-off"></i> Logout</a>
+                                @else
+                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1">Register</a>
+                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2">Login</a>
+
+                                @endauth
+
                             </div>
                         </div>
                     </div>

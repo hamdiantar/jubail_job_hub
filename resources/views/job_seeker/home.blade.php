@@ -185,8 +185,8 @@
                                 <a href="job_details.html"><h4>Digital Marketer</h4></a>
                                 <ul>
                                     <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
+                                    <li>3000 - 6000 SAR</li>
                                 </ul>
                             </div>
                         </div>
@@ -205,8 +205,8 @@
                                 <a href="job_details.html"><h4>Digital Marketer</h4></a>
                                 <ul>
                                     <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
+                                    <li>3000 - 6000 SAR</li>
                                 </ul>
                             </div>
                         </div>
@@ -225,8 +225,8 @@
                                 <a href="job_details.html"><h4>Digital Marketer</h4></a>
                                 <ul>
                                     <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
+                                    <li>3000 - 6000 SAR</li>
                                 </ul>
                             </div>
                         </div>
@@ -245,8 +245,8 @@
                                 <a href="job_details.html"><h4>Digital Marketer</h4></a>
                                 <ul>
                                     <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
+                                    <li>3000 - 6000 SAR</li>
                                 </ul>
                             </div>
                         </div>

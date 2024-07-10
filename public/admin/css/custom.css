@@ -52,3 +52,6 @@
 .form-control {
     border-color: #73b2ff !important;
 }
+.cke_notification_warning {
+    display: none !important;
+}

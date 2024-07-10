@@ -1,22 +1,6 @@
 @extends('job_seeker.shared.app')
 
 @section('content')
-    <!-- Hero Area Start-->
-{{--    <div class="slider-area ">--}}
-{{--        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{asset('assets/img/hero/about.jpg')}}">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-xl-12">--}}
-{{--                        <div class="hero-cap text-center">--}}
-{{--                            <h2>Join Us as a Company</h2>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- Hero Area End -->
-    <!-- ================ contact section start ================= -->
     <section class="contact-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -48,21 +32,21 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="username">username</label>
+                                    <label for="username">username <strong class="text-danger">*</strong> </label>
                                     <input class="form-control valid" name="username" id="username" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter username'" placeholder="username" value="{{ old('username') }}">
                                     <span class="text-danger">@error('username') {{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label for="email">Email  <strong class="text-danger">*</strong></label>
                                     <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address'" placeholder="Email" value="{{ old('email') }}">
                                     <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label for="password">Password  <strong class="text-danger">*</strong></label>
                                     <input class="form-control" name="password" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Password'" placeholder="Enter Password">
                                     <small class="form-text text-muted">The password must be at least 8 characters long and contain at least one letter, one digit, and one symbol (@$!%*#?&).</small>
                                     <span class="text-danger">@error('password') {{ $message }} @enderror</span>
@@ -70,30 +54,30 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="password_confirmation">Confirm Password</label>
+                                    <label for="password_confirmation">Confirm Password  <strong class="text-danger">*</strong></label>
                                     <input class="form-control" name="password_confirmation" id="password_confirmation" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" placeholder="Confirm Password">
                                     <span class="text-danger">@error('password_confirmation') {{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="fullname"> Owner Name </label>
+                                    <label for="fullname"> Owner Name  <strong class="text-danger">*</strong></label>
                                     <input class="form-control valid" name="fullname" id="fullname" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Full Name'" placeholder="Enter Full Name" value="{{ old('fullname') }}">
                                     <span class="text-danger">@error('fullname') {{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_name">Company Name</label>
+                                    <label for="company_name">Company Name  <strong class="text-danger">*</strong></label>
                                     <input class="form-control" name="company_name" id="company_name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Company Name'" placeholder="Enter Company Name" value="{{ old('company_name') }}">
                                     <span class="text-danger">@error('company_name') {{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="phone_number_1">Primary Phone Number</label>
+                                    <label for="phone_number_1">Primary Phone Number  <strong class="text-danger">*</strong></label>
                                     <input class="form-control valid" name="phone_number_1" id="phone_number_1" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Primary Phone Number'" placeholder="Enter Primary Phone Number" value="{{ old('phone_number_1') }}" onkeypress="return isNumber(event)">
-                                    <small class="form-text text-muted">The phone number must start with +96605 or 05 followed by 8 digits.</small>
+                                    <small class="form-text text-muted">The phone number must start with +966 or 05 followed by 8 digits.</small>
                                     <span class="text-danger">@error('phone_number_1') {{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -101,7 +85,7 @@
                                 <div class="form-group">
                                     <label for="phone_number_2">Secondary Phone Number</label>
                                     <input class="form-control valid" name="phone_number_2" id="phone_number_2" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Secondary Phone Number'" placeholder="Enter Secondary Phone Number" value="{{ old('phone_number_2') }}" onkeypress="return isNumber(event)">
-                                    <small class="form-text text-muted">The phone number must start with +96605 or 05 followed by 8 digits.</small>
+                                    <small class="form-text text-muted">The phone number must start with +966 or 05 followed by 8 digits.</small>
                                     <span class="text-danger">@error('phone_number_2') {{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -128,7 +112,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="industry">Industry</label>
+                                    <label for="industry">Industry  <strong class="text-danger">*</strong></label>
                                     <select class="form-control" name="industry" id="industry">
                                         <option value="">Select Industry</option>
                                         <option value="Technology">Technology</option>
@@ -143,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="company_size">Select Company Size</label>
+                                    <label for="company_size">Select Company Size  <strong class="text-danger">*</strong></label>
                                     <select class="form-control" name="company_size" id="company_size">
                                         <option value="">Select Company Size</option>
                                         <option value="small">Small</option>
@@ -155,7 +139,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="founded_at">Founded At</label>
+                                    <label for="founded_at">Founded At  <strong class="text-danger">*</strong></label>
                                     <input class="form-control" name="founded_at" id="founded_at" type="date" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Founded Date'" placeholder="Enter Founded Date" max="{{ date('Y-m-d') }}" value="{{ old('founded_at') }}">
                                     <span class="text-danger">@error('founded_at') {{ $message }} @enderror</span>
                                 </div>
@@ -170,7 +154,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="about_company">About Company</label>
+                                    <label for="about_company">About Company  <strong class="text-danger">*</strong></label>
                                     <textarea class="form-control w-100" name="about_company" id="about_company" cols="5" rows="5" onfocus="this.placeholder = ''" onblur="this.placeholder = 'About Company'" placeholder="About Company">{{ old('about_company') }}</textarea>
                                     <span class="text-danger">@error('about_company') {{ $message }} @enderror</span>
                                 </div>
@@ -186,5 +170,4 @@
             </div>
         </div>
     </section>
-    <!-- ================ contact section end ================= -->
 @endsection

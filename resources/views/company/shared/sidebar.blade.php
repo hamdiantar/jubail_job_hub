@@ -22,8 +22,8 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('company/job_ads*') ? 'active' : '' }}">
+            <a href="{{route('company.job_ads.index')}}">
                     <i class="fas fa-bullhorn"></i>
                     <p>Job Advertisements</p>
                 </a>

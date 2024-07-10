@@ -9,6 +9,7 @@ class JobAdvertisement extends Model
     protected $primaryKey = 'job_id';
     protected $fillable = ['company_id', 'admin_id', 'job_title', 'job_description', 'job_type', 'requirements', 'experience_level', 'education_level', 'skills_required', 'salary', 'benefits', 'location', 'working_hours', 'application_deadline', 'posted_date', 'is_published', 'advertise'];
     protected $dates = ['application_deadline', 'posted_date'];
+    public $timestamps = false;
 
     public function company()
     {
@@ -30,8 +31,9 @@ class JobAdvertisement extends Model
         return $this->hasMany(JobAlert::class, 'job_id');
     }
 
-    public function jobAdvertisementCategories()
+    public function categories()
     {
-        return $this->hasMany(JobAdvertisementCategory::class, 'job_id');
+        return $this->belongsToMany(JobCategory::class, JobAdvertisementCategory::class, 'job_id', 'job_category_id');
     }
 }
+

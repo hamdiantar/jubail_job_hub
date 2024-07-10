@@ -11,6 +11,7 @@ class JobSeeker extends Authenticatable
     protected $fillable = ['fullname', 'email', 'password', 'username', 'phone_number', 'experience_level', 'address', 'cv', 'joined_at'];
     protected $dates = ['joined_at'];
     protected $guard = 'jobseeker';
+    public $timestamps = false;
 
     public function applications()
     {
@@ -29,6 +30,7 @@ class JobSeeker extends Authenticatable
 
     public function jobSeekerJobCategories()
     {
-        return $this->hasMany(JobSeekerJobCategory::class, 'job_seeker_id');
+        return $this->belongsToMany(JobCategory::class, 'job_seekers_job_categories',
+            'job_seeker_id' ,'job_category_id');
     }
 }
