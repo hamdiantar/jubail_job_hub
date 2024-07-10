@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('admin/css/demo.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-
+    @yield('cs')
 </head>
 <body>
 <div class="wrapper">
@@ -169,20 +169,7 @@
     CKEDITOR.replace('benefits', {height: 100});
 
     CKEDITOR.replace('');
-    Circles.create({
-        id:           'freePlan',
-        radius:       50,
-        value:        1,
-        maxValue:     5,
-        width:        5,
-        text:         function(value){return value + '%';},
-        colors:       ['#ffffff', '#990000'],
-        duration:     400,
-        wrpClass:     'circles-wrp',
-        textClass:    'circles-text',
-        styleWrapper: true,
-        styleText:    true
-    })
 </script>
+@yield('scripts')
 </body>
 </html>

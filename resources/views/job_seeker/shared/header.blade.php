@@ -3,8 +3,8 @@
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="{{asset('logo.png')}}" alt="">
-{{--                <p>Jubail Job HUB</p>--}}
+{{--                <img src="{{asset('lo.png')}}" alt="">--}}
+                <p>Jubail Job HUB</p>
             </div>
         </div>
     </div>
@@ -16,10 +16,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-2">
-                        <!-- Logo -->
                         <div class="logo">
                             <img style="    margin-bottom: 10px;" height="73px" src="{{asset('logo.png')}}" alt="">
-{{--                            <h3 class="mainLogoH">Jubail Job HUB</h3>--}}
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
@@ -28,17 +26,18 @@
                             <div class="main-menu">
                                 <nav class="d-none d-lg-block">
                                     <ul id="navigation">
-                                        <li><a href="{{route('job_seeker.home')}}">Home</a></li>
-                                        <li><a href="{{route('job_seeker.job_ads')}}">Find a Jobs</a></li>
+                                        <li><a class="{{request()->is('/') ? 'active2' : ''}}" href="{{route('job_seeker.home')}}">Home</a></li>
+                                        <li><a class="{{request()->is('job_ads') ? 'active2' : ''}}" href="{{route('job_seeker.job_ads')}}">Find a Jobs</a></li>
+                                        <li><a class="{{request()->is('about_us') ? 'active2' : ''}}" href="{{route('about_us')}}">About Us</a></li>
                                         <li><a href="#haveCompany">Have A Company ?</a></li>
-                                        <li><a href="#">Page</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Blog</a></li>
-                                                <li><a href="#">Blog Details</a></li>
-                                                <li><a href="#">Elements</a></li>
-                                                <li><a href="#">job Details</a></li>
-                                            </ul>
-                                        </li>
+{{--                                        <li><a href="#">Page</a>--}}
+{{--                                            <ul class="submenu">--}}
+{{--                                                <li><a href="#">Blog</a></li>--}}
+{{--                                                <li><a href="#">Blog Details</a></li>--}}
+{{--                                                <li><a href="#">Elements</a></li>--}}
+{{--                                                <li><a href="#">job Details</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </li>--}}
                                         <li><a href="#">Contact</a></li>
                                     </ul>
                                 </nav>
@@ -50,8 +49,8 @@
                                         <i class="fa fa-user"></i> My Profile</a>
                                     <a id="logout-link" style="color: red;" href="{{route('job_seeker.login')}}" class="btn head-btn2 authBTN">    <i class="fa fa-power-off"></i> Logout</a>
                                 @else
-                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1">Register</a>
-                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2">Login</a>
+                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1 aHeader">Register</a>
+                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2 aHeader">Login</a>
 
                                 @endauth
 

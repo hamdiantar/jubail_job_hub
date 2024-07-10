@@ -105,12 +105,12 @@
                             </div>
                             <h4 class="widget_title text-white text-center">{{$company->company_name}}</h4>
                             <ul class="list cat-list social-icons">
-                                <li class="newLi" ><a class="text-white" href="#"><i class="fa fa-user"></i> Owner :{{$company->fullname}}</a></li>
-                                <li class="newLi"><a class="text-white" href="#"><i class="fa fa-comments"></i> Reviews :{{count($company->reviews)}}</a></li>
-                                <li class="newLi"><a class="text-white" href="#"><i class="fas fa-calendar"></i> Founded At :{{$company->founded_at}}</a></li>
-                                <li class="newLi"><a class="text-white" href="#"><i class="fas fa-map-marker"></i>Location: Jubail</a></li>
-                                <li class="newLi"><a class="text-white" href="#"><i class="fas fa-info"></i> Industry :{{$company->industry}}</a></li>
-                                <li class="newLi"><a class="text-white" href="#"><i class="fas fa-heart"></i> Size :{{$company->company_size}}</a></li>
+                                <li class="newLi" ><a class="text-white" href="#"><i class="fa mr-2 fa-user"></i> Owner :{{$company->fullname}}</a></li>
+                                <li class="newLi"><a class="text-white" href="#"><i class="fa mr-2 fa-comments"></i> Reviews :{{count($company->reviews)}}</a></li>
+                                <li class="newLi"><a class="text-white" href="#"><i class="fas mr-2 fa-calendar"></i> Founded At :{{$company->founded_at}}</a></li>
+                                <li class="newLi"><a class="text-white" href="#"><i class="fas mr-2 fa-map-marker"></i>Location: Jubail</a></li>
+                                <li class="newLi"><a class="text-white" href="#"><i class="fas mr-2 fa-industry"></i> Industry :{{$company->industry}}</a></li>
+                                <li class="newLi"><a class="text-white" href="#"><i class="fas mr-2 fa-info"></i> Size :{{$company->company_size}}</a></li>
                             </ul>
                         </aside>
 
@@ -131,7 +131,7 @@
                                 @if($company->phone_number_2)
                                     <li class="text-white"><i class="fa fa-phone mr-2"></i> {{$company->phone_number_2}}</li>
                                 @endif
-                                <li class="text-white"><i class="fa fa-mail-forward mr-2"></i> {{$company->email}}</li>
+                                <li class="text-white"><i class="fas fa-inbox mr-2"></i> {{$company->email}}</li>
                             </ul>
                         </aside>
                         <aside class="single_sidebar_widget single_sidebar_widget2 popular_post_widget">

@@ -4,14 +4,19 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\JobCategoryController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Company\ApplicationController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\JobAdvertisementController;
+use App\Http\Controllers\Company\PaymentController;
+use App\Http\Controllers\Company\ReviewController;
+use App\Http\Controllers\Company\SubscriptionController;
 use App\Http\Controllers\JobSeeker\HomeController;
 use App\Http\Controllers\JobSeeker\JobSeekerController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('job_seeker.home');
+Route::view('about_us', 'job_seeker.about_us')->name('about_us');
 Route::get('job_ads', [HomeController::class, 'jobsAds'])->name('job_seeker.job_ads');
 Route::get('company_profile/{company}', [HomeController::class, 'companyProfile'])->name('company_profile');
 Route::get('job_details/{id}', [HomeController::class, 'jobDetails'])->name('job_details');
@@ -37,7 +42,10 @@ Route::prefix('job_seeker')->name('job_seeker.')->middleware('auth:jobseeker')->
     Route::put('job_alerts', [JobSeekerController::class, 'updateJobAlerts'])->name('job_alerts.update');
     Route::post('add_review', [JobSeekerController::class, 'addReview'])->name('add_review');
     Route::get('my_reviews', [JobSeekerController::class, 'myReviews'])->name('my_reviews');
+    Route::get('my_applications', [JobSeekerController::class, 'myApplications'])->name('my_applications');
+    Route::delete('delete-application/{id}', [JobSeekerController::class, 'deleteApplication'])->name('delete_application');
     Route::delete('delete_review/{review}', [JobSeekerController::class, 'deleteMyReview'])->name('delete_review');
+    Route::post('apply/{if}', [JobSeekerController::class, 'apply'])->name('apply');
 
 });
 
@@ -55,8 +63,14 @@ Route::prefix('company')->name('company.')->middleware('auth:company')->group(fu
     Route::get('profile', [CompanyController::class, 'showProfileForm'])->name('profile');
     Route::post('profile', [CompanyController::class, 'updateProfile']);
     Route::get('dashboard', [CompanyController::class, 'dashboard'])->name('dashboard');
+    Route::resource('reviews', ReviewController::class);
     Route::resource('job_ads', JobAdvertisementController::class);
-
+    Route::resource('applications', ApplicationController::class);
+    Route::patch('applications/{id}/update-status', [ApplicationController::class, 'updateStatus'])->name('applications.updateStatus');
+    Route::get('subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+    Route::post('subscription', [SubscriptionController::class, 'store'])->name('subscription.store');
+    Route::get('payment',[PaymentController::class, 'index'])->name('payment.index');
+    Route::post('payment',[PaymentController::class, 'store'])->name('payment.store');
 });
 
 

@@ -29,15 +29,15 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('company/applications*') ? 'active' : '' }}">
+                <a href="{{route('company.applications.index')}}">
                     <i class="fas fa-file"></i>
                     <p>Applications</p>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('company/reviews*') ? 'active' : '' }}">
+                <a href="{{route('company.reviews.index')}}">
                     <i class="fas fa-comment-dots"></i>
                     <p>Reviews</p>
                 </a>

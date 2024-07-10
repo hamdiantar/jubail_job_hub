@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,7 +8,24 @@ class JobAdvertisement extends Model
 {
     protected $table = 'job_advertisements';
     protected $primaryKey = 'job_id';
-    protected $fillable = ['company_id', 'admin_id', 'job_title', 'job_description', 'job_type', 'requirements', 'experience_level', 'education_level', 'skills_required', 'salary', 'benefits', 'location', 'working_hours', 'application_deadline', 'posted_date', 'is_published', 'advertise'];
+    protected $fillable = [
+        'company_id',
+        'admin_id',
+        'job_title',
+        'job_description',
+        'job_type',
+        'requirements',
+        'experience_level',
+        'education_level',
+        'skills_required',
+        'salary',
+        'benefits',
+        'location',
+        'working_hours',
+        'application_deadline',
+        'posted_date',
+        'is_published',
+        'advertise'];
     protected $dates = ['application_deadline', 'posted_date'];
     public $timestamps = false;
 

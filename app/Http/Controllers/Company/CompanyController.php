@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\Company;
+use App\Models\JobAdvertisement;
+use App\Models\Review;
 use App\Rules\PasswordValidation;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -15,11 +18,20 @@ use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
-
     public function dashboard()
     {
-        return view('company.dashboard');
+        $companyId = auth('company')->user()->company_id;
+        $jobAdvertisementsCount = JobAdvertisement::where('company_id', $companyId)->count();
+        $applicationsCount = Application::whereHas('job', function($query) use ($companyId) {
+            $query->where('company_id', $companyId);
+        })->count();
+        $reviewsCount = Review::where('company_id', $companyId)->count();
+        $todayApplicationsCount = Application::whereDate('application_date', today())->get();
+        // Check free plan ads
+        $freeAdsCount = JobAdvertisement::where('company_id', $companyId)->count();
+        return view('company.dashboard', compact('jobAdvertisementsCount', 'applicationsCount', 'reviewsCount', 'todayApplicationsCount', 'freeAdsCount'));
     }
+
 
     public function showRegisterForm()
     {

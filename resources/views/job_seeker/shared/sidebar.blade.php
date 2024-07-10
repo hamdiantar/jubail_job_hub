@@ -14,7 +14,7 @@
         <ul class="list cat-list">
             <li class="{{ request()->is('job_seeker/profile') ? 'active' : '' }}">
                 <a href="{{ route('job_seeker.profile') }}" class="d-flex align-items-center">
-                    <p class="text-white"><i class="fa fa-user mr-2"></i>Update Profile</p>
+                    <p style="    margin-top: 11px;" class="text-white"><i class="fa fa-user mr-2"></i>Update Profile</p>
                 </a>
             </li>
             <li class="{{ request()->is('job_seeker/change_password') ? 'active' : '' }}">
@@ -37,8 +37,8 @@
                     <p class="text-white"><i class="fa fa-star mr-2"></i>My Reviews</p>
                 </a>
             </li>
-            <li class="{{ request()->is('applications') ? 'active' : '' }}">
-                <a href="{{ route('job_seeker.profile') }}" class="d-flex align-items-center">
+            <li class="{{ request()->is('job_seeker/my_applications') ? 'active' : '' }}">
+                <a href="{{ route('job_seeker.my_applications') }}" class="d-flex align-items-center">
                     <p class="text-white"><i class="fa fa-file mr-2"></i>My Applications</p>
                 </a>
             </li>

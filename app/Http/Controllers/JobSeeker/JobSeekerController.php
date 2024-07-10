@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
+use App\Models\ApplicationStatus;
+use App\Models\JobAdvertisement;
 use App\Models\JobCategory;
 use App\Models\JobSeeker;
 use App\Models\Review;
@@ -201,13 +204,43 @@ class JobSeekerController extends Controller
     {
         $jobSeeker = auth('jobseeker')->user();
         return view('job_seeker.my_reviews', compact('jobSeeker'));
+    }
+    public function myApplications(Request $request)
+    {
+        $jobSeeker = auth('jobseeker')->user();
+        return view('job_seeker.my_applications', compact('jobSeeker'));
+    }
 
+    public function deleteApplication($id)
+    {
+        $application = Application::findOrFail($id);
+        $application->applicationStatuses()->delete();
+        $application->delete();
+        return back()->with('success', 'Application deleted successfully.');
     }
 
     public function deleteMyReview (Review $review)
     {
         $review->delete();
         return back()->with('success', 'feedback deleted successfully');
+    }
+
+    public function apply(Request $request, int $jobId)
+    {
+        $job = JobAdvertisement::findOrFail($jobId);
+        $jobSeeker = auth('jobseeker')->user();
+        $data = $request->all();
+        $data['job_id'] = $job->job_id;
+        $data['job_seeker_id'] = $jobSeeker->job_seeker_id;
+        $data['application_date'] = now();
+        $app = Application::create($data);
+        ApplicationStatus::create([
+           'status' => 'Pending',
+           'application_id' => $app->application_id,
+           'updated_date' => now(),
+        ]);
+        return redirect()->route('job_seeker.my_applications')->with('success', 'Your application has been submitted successfully.');
+
     }
 
     public function upload(UploadedFile $file, string $path = 'uploads', string $slug = 'dummy slug'): string

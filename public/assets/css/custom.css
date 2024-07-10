@@ -132,13 +132,14 @@ hr {
     background: #73b2ff;
     color: #ffffff !important;
     display: inline-block;
-    padding: 18px 44px;
+    padding: 14px 33px;
     font-size: 14px;
     border: 0;
     letter-spacing: 2px;
     text-align: center;
     cursor: pointer;
     border-radius: 6px;
+    text-transform: lowercase;
 }
 .boxed-btn:hover {
     background: #112546;
@@ -367,4 +368,26 @@ hr {
 .comments-area .comment-list:last-child {
     padding-bottom: 0;
     border-bottom: none;
+}
+.aHeader {
+    padding: 19px;
+}
+.active2 {
+    border-bottom: 4px solid #03A9F4;
+    background: white;
+    color: #112546 !important;
+    padding: 9px 32px !important;
+    border-radius: 5px;
+}
+.active2,.header-area .main-menu ul li:hover>a {
+    border-bottom: 4px solid #03A9F4;
+    color: #ffffff;
+}
+.hborder {
+    border: 3px solid #babec3;
+    width: 32%;
+    border-radius: 7px;
+    margin: auto;
+    text-shadow: 2px 2px 2px #164960;
+    padding: 14px;
 }

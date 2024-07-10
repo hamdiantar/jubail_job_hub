@@ -7,35 +7,9 @@
                  data-background="{{asset('assets/bg.png')}}">
                 <div class="container">
                     <div class="row">
-                        <div style="    margin-bottom: 400px;" class="col-xl-6">
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="Job Tittle or keyword">
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">Location BD</option>
-                                            <option value="">Location PK</option>
-                                            <option value="">Location US</option>
-                                            <option value="">Location UK</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="search-form">
-                                    <a href="#">Find job</a>
-                                </div>
-                            </form>
+                        <div style="margin-bottom: 400px;" class="col-xl-6">
                         </div>
                     </div>
-                    {{--                    <div class="row">--}}
-                    {{--                        <div class="col-xl-12 col-lg-12 col-md-12">--}}
-                    {{--                            <div class="hero__caption">--}}
-                    {{--                                <h1>Find the most exciting startup jobs</h1>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    <!-- Search Box -->--}}
 
                 </div>
             </div>

@@ -9,7 +9,7 @@ class ApplicationStatus extends Model
     protected $primaryKey = 'application_status_id';
     protected $fillable = ['application_id', 'status', 'notes', 'updated_date'];
     protected $dates = ['updated_date'];
-
+    public $timestamps = false;
     public function application()
     {
         return $this->belongsTo(Application::class, 'application_id');

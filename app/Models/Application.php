@@ -9,7 +9,7 @@ class Application extends Model
     protected $primaryKey = 'application_id';
     protected $fillable = ['job_id', 'job_seeker_id', 'application_date', 'interview_date'];
     protected $dates = ['application_date', 'interview_date'];
-
+    public $timestamps = false;
     public function job()
     {
         return $this->belongsTo(JobAdvertisement::class, 'job_id');
