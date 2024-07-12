@@ -27,9 +27,10 @@
                                 <nav class="d-none d-lg-block">
                                     <ul id="navigation">
                                         <li><a class="{{request()->is('/') ? 'active2' : ''}}" href="{{route('job_seeker.home')}}">Home</a></li>
-                                        <li><a class="{{request()->is('job_ads') ? 'active2' : ''}}" href="{{route('job_seeker.job_ads')}}">Find a Jobs</a></li>
+                                        <li><a class="{{request()->is('job_ads') ? 'active2' : ''}}" href="{{route('job_seeker.job_ads')}}">Find Jobs</a></li>
                                         <li><a class="{{request()->is('about_us') ? 'active2' : ''}}" href="{{route('about_us')}}">About Us</a></li>
                                         <li><a class="{{request()->is('have_company') ? 'active2' : ''}}" href="{{route('have_company')}}">Have A Company?</a></li>
+                                        <li><a class="{{request()->is('contact_us') ? 'active2' : ''}}" href="{{route('contact_us')}}">Contact Us</a></li>
 {{--                                        <li><a href="#">Page</a>--}}
 {{--                                            <ul class="submenu">--}}
 {{--                                                <li><a href="#">Blog</a></li>--}}
@@ -38,7 +39,6 @@
 {{--                                                <li><a href="#">job Details</a></li>--}}
 {{--                                            </ul>--}}
 {{--                                        </li>--}}
-                                        <li><a href="#">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

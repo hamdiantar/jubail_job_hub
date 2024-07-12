@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('job_seeker.home');
 Route::view('about_us', 'job_seeker.about_us')->name('about_us');
+Route::view('contact_us', 'job_seeker.contact_us')->name('contact_us');
 Route::view('have_company', 'job_seeker.have_company')->name('have_company');
 Route::get('job_ads', [HomeController::class, 'jobsAds'])->name('job_seeker.job_ads');
 Route::get('company_profile/{company}', [HomeController::class, 'companyProfile'])->name('company_profile');

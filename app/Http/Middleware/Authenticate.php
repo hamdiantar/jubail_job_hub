@@ -18,7 +18,6 @@ class Authenticate extends Middleware
         if (!auth('admin')->check() && $request->segment(1) == 'admin') {
             return route('admin.login');
         }
-        dd($request->all());
         return $request->expectsJson() ? null : route('job_seeker.login');
     }
 }
