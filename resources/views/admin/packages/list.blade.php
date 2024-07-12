@@ -19,6 +19,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Package Name</th>
                                     <th>Package Period</th>
                                     <th>Package Price</th>
                                     <th>Description</th>
@@ -33,6 +34,7 @@
                                     <tr>
                                         <td>{{ $package->package_id }}</td>
                                         <td>{{ $package->type }}</td>
+                                        <td>{{ $package->period }} months</td>
                                         <td>{{ number_format($package->price, 2) }} SAR</td>
                                         <td>{!! $package->description !!}</td>
                                         <td>

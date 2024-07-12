@@ -40,62 +40,61 @@
                     <p>Packages</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#">
-                    <i class="far fa-money-bill-alt"></i>
-                    <p>Subscriptions</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('admin/companies*') ? 'active' : '' }}">
+                <a href="{{route('admin.companies.index')}}">
                     <i class="fas fa-home"></i>
                     <p>Companies</p>
                 </a>
             </li>
-
-            <li class="nav-item">
-                <a href="#">
-                    <i class="fas fa-user-tie"></i>
-                    <p>Job Seekers</p>
+            <li class="nav-item {{ request()->is('admin/subscriptions*') ? 'active' : '' }}">
+                <a href="{{route('admin.subscriptions.index')}}">
+                    <i class="far fa-money-bill-alt"></i>
+                    <p>Subscriptions</p>
                 </a>
             </li>
-
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('admin/job_ads*') ? 'active' : '' }}">
+                <a href="{{route('admin.job_ads.index')}}">
                     <i class="fas fa-bullhorn"></i>
                     <p>Job Advertisements</p>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#">
+            <li class="nav-item {{ request()->is('admin/job_seekers*') ? 'active' : '' }}">
+                <a href="{{route('admin.job_seekers.index')}}">
+                    <i class="fas fa-user-tie"></i>
+                    <p>Job Seekers</p>
+                </a>
+            </li>
+
+
+            <li class="nav-item {{ request()->is('admin/reviews*') ? 'active' : '' }}">
+                <a href="{{route('admin.reviews.index')}}">
                     <i class="fas fa-comment-dots"></i>
                     <p>Reviews</p>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a data-toggle="collapse" href="#base" class="collapsed" aria-expanded="false">
+            <li class="nav-item {{ request()->is('admin/reports*') ? 'submenu' : '' }}">
+                <a data-toggle="collapse" href="#base" class="{{ request()->is('admin/reports*') ? 'subMenuActive' : 'collapsed' }} " aria-expanded="false">
                     <i class="fas fa-file-contract"></i>
                     <p>Reports</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="base" style="">
+                <div class="collapse {{ request()->is('admin/reports*') ? 'show' : '' }}" id="base" style="">
                     <ul class="nav nav-collapse">
                         <li>
-                            <a href="#">
-                                <span class="sub-item">Reports 1</span>
+                            <a href="{{route('admin.reports.jobAdvertisements')}}">
+                                <span class="sub-item {{ request()->is('admin/reports/jobAdvertisements') ? 'subActive' : '' }}">Job Ads Summary</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <span class="sub-item">Reports 2</span>
+                            <a href="{{route('admin.reports.applications')}}">
+                                <span class="sub-item {{ request()->is('admin/reports/applications') ? 'subActive' : '' }}">Applications Summary</span>
                             </a>
                         </li>
-
                         <li>
-                            <a href="#">
-                                <span class="sub-item">Reports 3</span>
+                            <a href="{{route('admin.reports.reviews')}}">
+                                <span class="sub-item {{ request()->is('admin/reports/reviews') ? 'subActive' : '' }}">Performance Report</span>
                             </a>
                         </li>
                     </ul>

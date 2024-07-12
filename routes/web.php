@@ -4,19 +4,25 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\JobCategoryController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Company\ApplicationController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\JobAdvertisementController;
+use App\Http\Controllers\Admin\JobAdvertisementController as AdminJobAdvertisementController;
 use App\Http\Controllers\Company\PaymentController;
 use App\Http\Controllers\Company\ReviewController;
+use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 use App\Http\Controllers\Company\SubscriptionController;
+use App\Http\Controllers\Admin\SubscriptionController as AdminSubscriptionController;
 use App\Http\Controllers\JobSeeker\HomeController;
 use App\Http\Controllers\JobSeeker\JobSeekerController;
+use App\Http\Controllers\Admin\JobSeekerController as AdminJobSeekerController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('job_seeker.home');
 Route::view('about_us', 'job_seeker.about_us')->name('about_us');
+Route::view('have_company', 'job_seeker.have_company')->name('have_company');
 Route::get('job_ads', [HomeController::class, 'jobsAds'])->name('job_seeker.job_ads');
 Route::get('company_profile/{company}', [HomeController::class, 'companyProfile'])->name('company_profile');
 Route::get('job_details/{id}', [HomeController::class, 'jobDetails'])->name('job_details');
@@ -46,7 +52,10 @@ Route::prefix('job_seeker')->name('job_seeker.')->middleware('auth:jobseeker')->
     Route::delete('delete-application/{id}', [JobSeekerController::class, 'deleteApplication'])->name('delete_application');
     Route::delete('delete_review/{review}', [JobSeekerController::class, 'deleteMyReview'])->name('delete_review');
     Route::post('apply/{if}', [JobSeekerController::class, 'apply'])->name('apply');
+    Route::get('track_application', [JobSeekerController::class, 'trackApplication'])->name('track_application');
 
+    Route::put('job_alerts/{id}/read', [JobSeekerController::class, 'markAsRead'])->name('job_alerts.read');
+    Route::delete('job_alerts/{id}', [JobSeekerController::class, 'destroy'])->name('job_alerts.destroy');
 });
 
 
@@ -67,10 +76,9 @@ Route::prefix('company')->name('company.')->middleware('auth:company')->group(fu
     Route::resource('job_ads', JobAdvertisementController::class);
     Route::resource('applications', ApplicationController::class);
     Route::patch('applications/{id}/update-status', [ApplicationController::class, 'updateStatus'])->name('applications.updateStatus');
+    Route::get('my_subscription', [SubscriptionController::class, 'getMySubscriptions'])->name('my_subscription');
     Route::get('subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
-    Route::post('subscription', [SubscriptionController::class, 'store'])->name('subscription.store');
-    Route::get('payment',[PaymentController::class, 'index'])->name('payment.index');
-    Route::post('payment',[PaymentController::class, 'store'])->name('payment.store');
+    Route::post('payment', [SubscriptionController::class, 'payment'])->name('subscription.payment');
 });
 
 
@@ -90,4 +98,37 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     Route::resource('managers', ManagerController::class);
     Route::resource('job_categories', JobCategoryController::class);
     Route::resource('packages', PackageController::class);
+
+    Route::resource('companies', App\Http\Controllers\Admin\CompanyController::class);
+    Route::post('companies/{company}/block', [App\Http\Controllers\Admin\CompanyController::class, 'block'])->name('companies.block');
+    Route::post('companies/{company}/unblock', [App\Http\Controllers\Admin\CompanyController::class, 'unblock'])->name('companies.unblock');
+    Route::post('companies/{company}/accept', [App\Http\Controllers\Admin\CompanyController::class, 'accept'])->name('companies.accept');
+    Route::post('companies/{company}/reject', [App\Http\Controllers\Admin\CompanyController::class, 'reject'])->name('companies.reject');
+
+
+    Route::get('subscriptions', [AdminSubscriptionController::class, 'index'])->name('subscriptions.index');
+    Route::get('subscriptions/{id}', [AdminSubscriptionController::class, 'show'])->name('subscriptions.show');
+
+    Route::get('job_ads', [AdminJobAdvertisementController::class, 'index'])->name('job_ads.index');
+    Route::post('job_ads/{id}/accept', [AdminJobAdvertisementController::class, 'accept'])->name('job_ads.accept');
+    Route::post('job_ads/{id}/reject', [AdminJobAdvertisementController::class, 'reject'])->name('job_ads.reject');
+
+
+    Route::get('job_seekers', [AdminJobSeekerController::class, 'index'])->name('job_seekers.index');
+    Route::post('job_seekers/{id}/block', [AdminJobSeekerController::class, 'block'])->name('job_seekers.block');
+    Route::post('job_seekers/{id}/unblock', [AdminJobSeekerController::class, 'unblock'])->name('job_seekers.unblock');
+    Route::get('job_seekers/{id}', [AdminJobSeekerController::class, 'show'])->name('job_seekers.show');
+
+    Route::delete('reviews/{id}/delete', [AdminJobSeekerController::class, 'deleteReview'])->name('reviews.delete');
+
+    Route::get('reviews', [AdminReviewController::class, 'index'])->name('reviews.index');
+    Route::delete('reviews/{id}', [AdminReviewController::class, 'destroy'])->name('reviews.destroy');
+
+
+    Route::get('reports/companies', [ReportController::class, 'companiesReport'])->name('reports.companies');
+    Route::get('reports/jobAdvertisements', [ReportController::class, 'jobAdvertisementsReport'])->name('reports.jobAdvertisements');
+    Route::get('reports/jobSeekers', [ReportController::class, 'jobSeekersReport'])->name('reports.jobSeekers');
+    Route::get('reports/applications', [ReportController::class, 'applicationsReport'])->name('reports.applications');
+    Route::get('reports/reviews', [ReportController::class, 'reviewsReport'])->name('reports.reviews');
+
 });

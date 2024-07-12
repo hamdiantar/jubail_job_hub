@@ -155,10 +155,36 @@
             form.submit();
         }
     }
+    function confirmAction(url, action) {
+        if (confirm("Are you sure you want to " + action + " this account?")) {
+            var form = document.createElement("form");
+            form.setAttribute("method", "POST");
+            form.setAttribute("action", url);
+            var csrfToken = document.createElement("input");
+            csrfToken.setAttribute("type", "hidden");
+            csrfToken.setAttribute("name", "_token");
+            csrfToken.setAttribute("value", "{{ csrf_token() }}");
+            form.appendChild(csrfToken);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+    function printDiv(divName) {
+        document.getElementById('PrintBUtton').style.display='none';
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
 
+        document.body.innerHTML = printContents;
 
+        window.print();
+
+        document.body.innerHTML = originalContents;
+        document.getElementById('PrintBUtton').style.display='block';
+
+    }
     CKEDITOR.replace('description');
 
 </script>
+@stack('js')
 </body>
 </html>

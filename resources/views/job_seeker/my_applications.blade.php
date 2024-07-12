@@ -22,13 +22,14 @@
                                         <th>Company</th>
                                         <th>Application Date</th>
                                         <th>Application Status</th>
+                                        <th>Track</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($jobSeeker->applications as $index => $application)
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{$application->application_id }}</td>
                                             <td><a class="text-primary" target="_blank" href="{{route('job_details', optional($application->job)->job_id)}}">{{ optional($application->job)->job_title }}</a></td>
                                             <td>
                                                 <a class="text-primary" target="_blank" href="{{ route('company_profile', optional($application->job)->company_id) }}">{{ optional($application->job)->company->company_name }}</a>
@@ -42,8 +43,13 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                <a href="{{route('job_seeker.track_application').'?application_id='.$application->application_id}}" class="text-primary" style="cursor: pointer">
+                                                    <i class="fa fa-eye-dropper"></i>
+                                                </a>
+                                            </td>
+                                            <td>
                                                 <a onclick="confirmDelete('{{ route('job_seeker.delete_application', $application->application_id) }}')" class="text-danger" style="cursor: pointer"><i class="fa fa-trash"></i></a>
-                                                <a href="#" class="text-primary" style="cursor: pointer"><i class="fa fa-road"></i></a>
+
                                             </td>
                                         </tr>
                                     @endforeach

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Company;
+use App\Models\JobAdvertisement;
+use App\Models\JobSeeker;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -34,7 +38,26 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $jobSeekersCount = JobSeeker::count();
+        $companiesCount = Company::count();
+        $jobsCount = JobAdvertisement::count();
+        $subscriptionsCount = Subscription::count();
+
+        // Retrieve companies with their job count
+        $companies = Company::withCount('jobAdvertisements')->get();
+
+        // Prepare data for chart
+        $companyNames = $companies->pluck('company_name');
+        $jobCounts = $companies->pluck('job_advertisements_count');
+
+        return view('admin.dashboard', [
+            'jobSeekersCount' => $jobSeekersCount,
+            'companiesCount' => $companiesCount,
+            'jobsCount' => $jobsCount,
+            'subscriptionsCount' => $subscriptionsCount,
+            'companyNames' => $companyNames,
+            'jobCounts' => $jobCounts,
+        ]);
     }
 
     public function logout()

@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Subscription extends Model
 {
@@ -9,6 +10,7 @@ class Subscription extends Model
     protected $primaryKey = 'sub_id';
     protected $fillable = ['company_id', 'package_id', 'date_time'];
     protected $dates = ['date_time'];
+    public $timestamps = false;
 
     public function company()
     {
@@ -23,5 +25,12 @@ class Subscription extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class, 'sub_id');
+    }
+
+
+    // Cast date_time to a Carbon instance
+    public function getDateTimeAttribute($value)
+    {
+        return Carbon::parse($value);
     }
 }

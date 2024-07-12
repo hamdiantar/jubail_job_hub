@@ -104,6 +104,12 @@
             document.getElementById('logout-form').submit();
         }
     });
+    document.getElementById('logout-link2').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to log out?')) {
+            document.getElementById('logout-form').submit();
+        }
+    });
 
     function confirmDelete(url) {
         if (confirm("Are you sure you want to delete this item?")) {

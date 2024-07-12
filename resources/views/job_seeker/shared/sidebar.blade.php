@@ -42,13 +42,13 @@
                     <p class="text-white"><i class="fa fa-file mr-2"></i>My Applications</p>
                 </a>
             </li>
-            <li class="{{ request()->is('track') ? 'active' : '' }}">
-                <a href="{{ route('job_seeker.profile') }}" class="d-flex align-items-center">
+            <li class="{{ request()->is('job_seeker/track_application') ? 'active' : '' }}">
+                <a href="{{ route('job_seeker.track_application') }}" class="d-flex align-items-center">
                     <p class="text-white"><i class="fa fa-search mr-2"></i>Track Application</p>
                 </a>
             </li>
             <li style="    padding-bottom: 232px" class="pb-50">
-                <a href="{{ route('job_seeker.logout') }}" class="d-flex align-items-center">
+                <a  id="logout-link2" href="#" class="d-flex align-items-center">
                     <p class="text-white"><i class="fa fa-power-off mr-2"></i>Logout</p>
                 </a>
             </li>

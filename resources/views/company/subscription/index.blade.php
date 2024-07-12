@@ -75,7 +75,6 @@
                                                 <circle cx="2.5" cy="62.5" r="2.5" transform="rotate(90 2.5 62.5)" fill="#E0ECF7"/>
                                             </svg>
                                         </div>
-
                                         <div class="card333">
 
                                             <div class="card__visa">
@@ -98,8 +97,7 @@
                                                 </p>
                                             </div>
                                         </div>
-
-                                        <form class="form">
+                                        <form class="form" method="post" action="{{route('company.subscription.payment')}}">
                                             @csrf
                                             <input type="hidden" name="package_id" id="selected-package-id">
                                             <h2>Payment Details</h2>

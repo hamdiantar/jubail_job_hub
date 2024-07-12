@@ -391,3 +391,40 @@ hr {
     text-shadow: 2px 2px 2px #164960;
     padding: 14px;
 }
+.status-pending { background-color: #ffebcc; }
+.status-accepted { background-color: #d4edda; }
+.status-rejected { background-color: #f8d7da; }
+.status-withdrawn { background-color: #fff3cd; }
+.status-interviewing { background-color: #cce5ff; }
+.status-offer-sent { background-color: #e2e3e5; }
+.status-offer-accepted { background-color: #d1ecf1; }
+.status-offer-rejected { background-color: #f8d7da; }
+.notification2{
+    font-size: 21px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+.notification2 span{
+    border-radius: 100%;
+    font-size: 10px;
+    padding: 4px;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    top: 12px;
+    right: 250px;
+}
+.makeReade {
+    border: none;
+    background: none;
+    color: blue;
+    text-decoration: underline;
+    margin: 8px;
+    cursor: pointer;
+}
+.cursor {
+    cursor: pointer;
+}
+.reading {
+    background: #11254621;
+}

@@ -29,7 +29,7 @@
                                         <li><a class="{{request()->is('/') ? 'active2' : ''}}" href="{{route('job_seeker.home')}}">Home</a></li>
                                         <li><a class="{{request()->is('job_ads') ? 'active2' : ''}}" href="{{route('job_seeker.job_ads')}}">Find a Jobs</a></li>
                                         <li><a class="{{request()->is('about_us') ? 'active2' : ''}}" href="{{route('about_us')}}">About Us</a></li>
-                                        <li><a href="#haveCompany">Have A Company ?</a></li>
+                                        <li><a class="{{request()->is('have_company') ? 'active2' : ''}}" href="{{route('have_company')}}">Have A Company?</a></li>
 {{--                                        <li><a href="#">Page</a>--}}
 {{--                                            <ul class="submenu">--}}
 {{--                                                <li><a href="#">Blog</a></li>--}}
@@ -45,9 +45,12 @@
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
                                 @auth('jobseeker')
-                                    <a href="{{route('job_seeker.profile')}}" class="btn head-btn1 authBTN">
-                                        <i class="fa fa-user"></i> My Profile</a>
-                                    <a id="logout-link" style="color: red;" href="{{route('job_seeker.login')}}" class="btn head-btn2 authBTN">    <i class="fa fa-power-off"></i> Logout</a>
+                                    <a href="{{route('job_seeker.job_alerts')}}" class="notification2"><i class="fa fa-bell text-white"></i> <span class="badge badge-danger">
+                                               {{ auth('jobseeker')->user()->jobAlerts()->where('is_read', false)->count() }}
+                                        </span></a>
+                                    <a href="{{route('job_seeker.profile')}}" class="btn head-btn1 authBTN"><i class="fa fa-user"></i> My Profile</a>
+                                    <a id="logout-link" style="color: red;" href="#" class="btn head-btn2 authBTN">
+                                        <i class="fa fa-power-off"></i> Logout</a>
                                 @else
                                     <a href="{{route('job_seeker.register')}}" class="btn head-btn1 aHeader">Register</a>
                                     <a href="{{route('job_seeker.login')}}" class="btn head-btn2 aHeader">Login</a>

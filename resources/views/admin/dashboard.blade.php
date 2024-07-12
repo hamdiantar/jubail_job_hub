@@ -4,24 +4,12 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">Dashboard</h4>
-            <div class="btn-group btn-group-page-header ml-auto">
-                <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-h"></i>
-                </button>
-                <div class="dropdown-menu">
-                    <div class="arrow"></div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </div>
         </div>
+
         <div class="row">
-            <div class="col-sm-6 col-md-3">
+            <div class="col-md-3">
                 <div class="card card-stats card-round">
-                    <div class="card-body ">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-icon">
                                 <div style="    background: #112546;" class="icon-big text-center icon-primary bubble-shadow-small">
@@ -30,15 +18,16 @@
                             </div>
                             <div class="col col-stats ml-3 ml-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">Customers</p>
-                                    <h4 class="card-title">1,294</h4>
+                                    <p class="card-category">Job Seekers</p>
+                                    <h4 class="card-title">{{ $jobSeekersCount }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-3">
+
+            <div class="col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -50,14 +39,15 @@
                             <div class="col col-stats ml-3 ml-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Companies</p>
-                                    <h4 class="card-title">1303</h4>
+                                    <h4 class="card-title">{{ $companiesCount }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-3">
+
+            <div class="col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -69,14 +59,15 @@
                             <div class="col col-stats ml-3 ml-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Jobs</p>
-                                    <h4 class="card-title"> 1,345</h4>
+                                    <h4 class="card-title">{{ $jobsCount }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-3">
+
+            <div class="col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -88,7 +79,7 @@
                             <div class="col col-stats ml-3 ml-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Subscriptions</p>
-                                    <h4 class="card-title">576</h4>
+                                    <h4 class="card-title">{{ $subscriptionsCount }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -96,46 +87,61 @@
                 </div>
             </div>
         </div>
-        <div class="row">
 
-            {{--                    <div class="col-md-3">--}}
-            {{--                        <div class="card card-info bg-info-gradient">--}}
-            {{--                            <div class="card-body">--}}
-            {{--                                <h4 class="mb-1 fw-bold">Tasks Progress</h4>--}}
-            {{--                                <div id="task-complete" class="chart-circle mt-4 mb-3"></div>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
+        <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-head-row">
-                            <div class="card-title">Companies Statistics</div>
-                            <div class="card-tools">
-                                <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-												<span class="btn-label">
-													<i class="fa fa-pencil"></i>
-												</span>
-                                    Export
-                                </a>
-                                <a href="#" class="btn btn-info btn-border btn-round btn-sm">
-												<span class="btn-label">
-													<i class="fa fa-print"></i>
-												</span>
-                                    Print
-                                </a>
-                            </div>
+                            <div class="card-title">Companies and Jobs Statistics</div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="chart-container" style="min-height: 375px">
-                            <canvas id="statisticsChart"></canvas>
-                        </div>
-                        <div id="myChartLegend"></div>
+                        <canvas id="companyJobsChart"></canvas>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('companyJobsChart').getContext('2d');
+        var companyNames = @json($companyNames);
+        var jobCounts = @json($jobCounts);
+
+        var companyJobsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: companyNames,
+                datasets: [{
+                    label: 'Number of Jobs',
+                    data: jobCounts,
+                    backgroundColor: '#36a2eb',
+                    borderColor: '#36a2eb',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 45,
+                            minRotation: 0
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+@endpush

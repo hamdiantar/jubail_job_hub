@@ -87,7 +87,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('company.profile') }}"><i class="flaticon-user"></i> My Profile</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="flaticon-cogs"></i> Setting</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" id="logout-link"><i class="flaticon-log"></i> Logout</a>
                     </li>
@@ -96,14 +95,10 @@
         </ul>
     </div>
 </nav>
-<script>
-    document.getElementById('logout-link').addEventListener('click', function (event) {
-        event.preventDefault();
-        if (confirm('Are you sure you want to log out?')) {
-            document.getElementById('logout-form').submit();
-        }
-    });
-</script>
+
 <form id="logout-form" action="{{ route('company.logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+<form id="logout-form2" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
     @csrf
 </form>

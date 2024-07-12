@@ -1,8 +1,7 @@
 <div class="logo-header">
     <a href="#" class="logo">
-        <img style="    width: 100%;
+        <img style="    background: #112546;width: 100%;
     height: 68px;
-    /* margin: auto; */
     margin-top: 10px;" src="{{asset('logo.png')}}">
     </a>
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +102,9 @@
             document.getElementById('logout-form').submit();
         }
     });
+
 </script>
 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
+

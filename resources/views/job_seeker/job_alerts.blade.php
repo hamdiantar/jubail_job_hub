@@ -32,6 +32,35 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div class="alert-list mt-5">
+                            <h4>Your Notifications</h4>
+                            <ul class="list-group">
+                                @foreach($jobAlerts as $alert)
+                                    <li class="list-group-item {{ $alert->is_read ? '' : 'reading' }}">
+
+                                        <div class="d-flex justify-content-between">
+                                            <p>
+                                                <a class="text-primary" target="_blank" href="{{route('job_details', optional($alert->job)->job_id)}}">{{ optional($alert->job)->job_title }}</a></p>
+                                            <p>{{ date('Y-m-d', strtotime($alert->notification_date)) }} at {{date('H:i A', strtotime($alert->notification_time))  }}</p>
+                                            @if(!$alert->is_read)
+                                                <form action="{{ route('job_seeker.job_alerts.read', $alert->job_alert_id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="makeReade">Mark as Read</button>
+                                                </form>
+                                            @endif
+
+                                            <form action="{{ route('job_seeker.job_alerts.destroy', $alert->job_alert_id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class=" btn-sm btn-danger cursor"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

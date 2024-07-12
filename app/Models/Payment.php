@@ -9,6 +9,7 @@ class Payment extends Model
     protected $primaryKey = 'payment_id';
     protected $fillable = ['sub_id', 'amount', 'date_time', 'status', 'ref_number'];
     protected $dates = ['date_time'];
+    public $timestamps = false;
 
     public function subscription()
     {

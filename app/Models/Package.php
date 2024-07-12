@@ -7,7 +7,7 @@ class Package extends Model
 {
     protected $table = 'packages';
     protected $primaryKey = 'package_id';
-    protected $fillable = ['admin_id', 'type', 'price' ,'description', 'is_available'];
+    protected $fillable = ['admin_id', 'type', 'price', 'period','description', 'is_available'];
     public $timestamps = false;
 
     public function admin()

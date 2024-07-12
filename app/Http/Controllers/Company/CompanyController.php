@@ -20,7 +20,8 @@ class CompanyController extends Controller
 {
     public function dashboard()
     {
-        $companyId = auth('company')->user()->company_id;
+        $company = auth('company')->user();
+        $companyId = $company->company_id;
         $jobAdvertisementsCount = JobAdvertisement::where('company_id', $companyId)->count();
         $applicationsCount = Application::whereHas('job', function($query) use ($companyId) {
             $query->where('company_id', $companyId);
@@ -29,7 +30,8 @@ class CompanyController extends Controller
         $todayApplicationsCount = Application::whereDate('application_date', today())->get();
         // Check free plan ads
         $freeAdsCount = JobAdvertisement::where('company_id', $companyId)->count();
-        return view('company.dashboard', compact('jobAdvertisementsCount', 'applicationsCount', 'reviewsCount', 'todayApplicationsCount', 'freeAdsCount'));
+        return view('company.dashboard', compact('jobAdvertisementsCount',
+            'applicationsCount', 'reviewsCount', 'todayApplicationsCount', 'freeAdsCount', 'company'));
     }
 
 

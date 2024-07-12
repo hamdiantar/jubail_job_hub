@@ -55,3 +55,19 @@
 .cke_notification_warning {
     display: none !important;
 }
+.boxFilter {
+        margin-bottom: 49px;
+        border-bottom: 1px solid #d5d5d5;
+        padding-bottom: 14px;
+}
+.sidebar .nav>.nav-item a {
+
+    color: #ffffff;
+}
+.subActive {
+    color: #03A9F4;
+    font-weight: bolder;
+}
+.subMenuActive {
+    background: #3b5787;
+}

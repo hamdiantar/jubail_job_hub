@@ -7,9 +7,15 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Job Advertisements [ <span class="badge badge-danger badge-count">{{ $jobAds->count() }}</span> ] | List</h4>
+                        @if($jobAds->count() >= 5 && count($company->subscriptions) == 0)
+                        <div class="alert alert-warning mt-3">
+                            You have reached the limit of free job advertisements. Please <a href="{{ route('company.subscription.index') }}">subscribe</a> to add more job advertisements.
+                        </div>
+                        @else
                         <button onclick="window.location.href='{{ route('company.job_ads.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
+                        @endif
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

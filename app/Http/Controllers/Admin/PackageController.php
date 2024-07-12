@@ -27,6 +27,7 @@ class PackageController extends Controller
         $validator = Validator::make($request->all(), [
             'type' => 'required|string|in:Monthly,Quarterly,Yearly',
             'price' => 'required|numeric|min:1',
+            'period' => 'required|numeric|min:1',
             'description' => 'required|string',
             'is_available' => 'required|boolean',
         ]);
@@ -58,6 +59,7 @@ class PackageController extends Controller
 
         $validator = Validator::make($request->all(), [
             'price' => 'required|numeric|min:1',
+            'period' => 'required|numeric|min:1',
             'type' => 'required|string|in:Monthly,Quarterly,Yearly',
             'description' => 'required|string',
             'is_available' => 'required|boolean',

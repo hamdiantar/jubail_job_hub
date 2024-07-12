@@ -169,6 +169,18 @@
     CKEDITOR.replace('benefits', {height: 100});
 
     CKEDITOR.replace('');
+        document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to log out?')) {
+        document.getElementById('logout-form').submit();
+    }
+    });
+        document.getElementById('logout-link2').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to log out?')) {
+        document.getElementById('logout-form2').submit();
+    }
+    });
 </script>
 @yield('scripts')
 </body>

@@ -9,6 +9,7 @@ class JobAlert extends Model
     protected $primaryKey = 'job_alert_id';
     protected $fillable = ['job_seeker_id', 'job_id', 'notification_date', 'notification_time', 'is_read'];
     protected $dates = ['notification_date'];
+    public $timestamps = false;
     protected $casts = [
         'notification_time' => 'datetime:H:i',
     ];

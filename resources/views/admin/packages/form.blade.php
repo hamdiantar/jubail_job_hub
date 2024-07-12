@@ -21,6 +21,14 @@
         @enderror
     </div>
 
+        <div class="form-group col-md-6">
+            <label for="price">period (in month) </label>
+            <input type="number" class="form-control @error('period') is-invalid @enderror" id="period" name="period" value="{{ old('period', $package->period ?? '') }}" placeholder="Enter period">
+            @error('period')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
     <div class="form-group col-md-12">
         <label for="description">Description</label>
         <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3">{{ old('description', $package->description ?? '') }}</textarea>

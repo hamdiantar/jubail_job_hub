@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\ApplicationStatus;
 use App\Models\JobAdvertisement;
+use App\Models\JobAlert;
 use App\Models\JobCategory;
 use App\Models\JobSeeker;
 use App\Models\Review;
@@ -177,8 +178,8 @@ class JobSeekerController extends Controller
     {
         $jobSeeker = auth('jobseeker')->user();
         $jobCategories = JobCategory::all();
-
-        return view('job_seeker.job_alerts', compact('jobSeeker', 'jobCategories'));
+        $jobAlerts = $jobSeeker->jobAlerts()->get();
+        return view('job_seeker.job_alerts', compact('jobSeeker', 'jobCategories', 'jobAlerts'));
     }
 
     public function updateJobAlerts(Request $request)
@@ -241,6 +242,32 @@ class JobSeekerController extends Controller
         ]);
         return redirect()->route('job_seeker.my_applications')->with('success', 'Your application has been submitted successfully.');
 
+    }
+
+    public function trackApplication(Request $request)
+    {
+        $application = null;
+        $jobSeeker = auth('jobseeker')->user();
+        if ($request->has('application_id')) {
+            $application = $jobSeeker->applications()->where('application_id',$request->application_id)->first();
+        }
+        return view('job_seeker.track_application', compact('application'));
+    }
+
+    public function markAsRead($id)
+    {
+        $jobAlert = JobAlert::findOrFail($id);
+        $jobAlert->is_read = true;
+        $jobAlert->save();
+        return redirect()->route('job_seeker.job_alerts')->with('success', 'Notification marked as read.');
+    }
+
+    public function destroy($id)
+    {
+        $jobAlert = JobAlert::findOrFail($id);
+        $jobAlert->delete();
+
+        return redirect()->route('job_seeker.job_alerts')->with('success', 'Notification deleted.');
     }
 
     public function upload(UploadedFile $file, string $path = 'uploads', string $slug = 'dummy slug'): string

@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobAdvertisement;
+use App\Models\JobAlert;
 use App\Models\JobCategory;
+use App\Models\JobSeeker;
 use Illuminate\Http\Request;
 
 class JobAdvertisementController extends Controller
 {
     public function index()
     {
-        $companyId = auth('company')->user()->company_id;
+        $company = auth('company')->user();
+        $companyId = $company->company_id;
         $jobAds = JobAdvertisement::with('categories')->where('company_id', $companyId)->get();
-        return view('company.job_ads.list', compact('jobAds'));
+        return view('company.job_ads.list', compact('jobAds', 'company'));
     }
 
     public function create()
@@ -45,6 +48,20 @@ class JobAdvertisementController extends Controller
 
         $jobAd = JobAdvertisement::create($data);
         $jobAd->categories()->sync($request->categories);
+
+        $jobSeekers = JobSeeker::whereHas('jobSeekerJobCategories', function ($query) use ($request) {
+            $query->whereIn('job_seekers_job_categories.job_category_id', $request->categories);
+        })->get();
+
+        foreach ($jobSeekers as $jobSeeker) {
+            JobAlert::create([
+                'job_seeker_id' => $jobSeeker->job_seeker_id,
+                'job_id' => $jobAd->job_id,
+                'notification_date' => now(),
+                'notification_time' => now(),
+                'is_read' => false,
+            ]);
+        }
 
         return redirect()->route('company.job_ads.index')->with('success', 'Job advertisement created successfully.');
     }
