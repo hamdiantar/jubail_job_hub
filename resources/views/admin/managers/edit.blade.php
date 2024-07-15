@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Managers | Edit</h4>
+                        <h4 class="card-title">Admins | Edit</h4>
                         <button onclick="window.location.href='{{ route('admin.managers.index') }}'" class="btn btn-icon btn-rounded btn-danger float-right">
                             <i class="fa fa-arrow-right"></i>
                         </button>

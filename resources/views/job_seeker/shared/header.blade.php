@@ -52,10 +52,12 @@
                                     <a id="logout-link" style="color: red;" href="#" class="btn head-btn2 authBTN">
                                         <i class="fa fa-power-off"></i> Logout</a>
                                 @else
-                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1 aHeader">Register</a>
-                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2 aHeader">Login</a>
-
+{{--                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1 aHeader">Register</a>--}}
+{{--                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2 aHeader">Login</a>--}}
+                                    <a href="#" class="btn head-btn1 aHeader" data-toggle="modal" data-target="#authModalRegister">Register</a>
+                                    <a href="#" class="btn head-btn2 aHeader" data-toggle="modal" data-target="#authModalLogin">Login</a>
                                 @endauth
+
 
                             </div>
                         </div>

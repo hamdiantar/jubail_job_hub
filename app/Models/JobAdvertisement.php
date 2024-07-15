@@ -51,7 +51,7 @@ class JobAdvertisement extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(JobCategory::class, JobAdvertisementCategory::class, 'job_id', 'job_category_id');
+        return $this->belongsToMany(JobCategory::class, 'job_advertisement_categories', 'job_category_id', 'job_id');
     }
 }
 

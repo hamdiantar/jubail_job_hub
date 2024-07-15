@@ -1,20 +1,20 @@
 @extends('job_seeker.shared.app')
 
 @section('content')
-    <div class="slider-area ">
-        <div class="slider-active">
-            <div class="single-slider slider-height d-flex align-items-center"
-                 data-background="{{asset('assets/bg.png')}}">
-                <div class="container">
-                    <div class="row">
-                        <div style="margin-bottom: 400px;" class="col-xl-6">
-                        </div>
-                    </div>
+{{--    <div class="slider-area ">--}}
+{{--        <div class="slider-active">--}}
+{{--            <div class="single-slider slider-height d-flex align-items-center"--}}
+{{--                 data-background="{{asset('assets/bg.png')}}">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div style="margin-bottom: 400px;" class="col-xl-6">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- slider Area End-->
     <!-- Our Services Start -->
     <div class="our-services section-pad-t30">
@@ -24,109 +24,37 @@
                 <div class="col-lg-12">
 
                     <div class="section-tittle text-center">
-                        <span>FEATURED TOURS Packages</span>
+                        <span>Featured categories</span>
                         <h2>Browse Top Categories </h2>
 
                     </div>
                 </div>
             </div>
 
-            <div class="row d-flex justify-contnet-center">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-tour"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Design & Creative</a></h5>
-                            <span>(653)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-cms"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Design & Development</a></h5>
-                            <span>(658)</span>
+            <div class="row d-flex justify-content-center">
+                @foreach($categories as $category)
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flaticon-tour"></span>
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="{{route('job_seeker.job_ads').'?category='.$category->job_category_id}}">{{ $category->job_category_name }}</a></h5>
+                                <span><a class="btn seemore btn-link" href="{{route('job_seeker.job_ads').'?category='.$category->job_category_id}}">
+                                        see more
+                                    </a></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-report"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Sales & Marketing</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-app"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Mobile Application</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-helmet"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Construction</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-high-tech"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Information Technology</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-real-estate"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Real Estate</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-content"></span>
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Content Writer</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
             <!-- More Btn -->
             <!-- Section Button -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="#" class="border-btn2">Browse All Sectors</a>
+{{--                        <a href="#" class="border-btn2">Browse All Sectors</a>--}}
                     </div>
                 </div>
             </div>
@@ -149,86 +77,33 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-10">
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="job_details.html"><img src="{{asset('assets/img/icon/job-list1.png')}}" alt=""></a>
+                    @foreach($fiveJobs as $job)
+                        <div class="single-job-items mb-30">
+                            <div class="job-items">
+                                <div class="company-img">
+                                    <a href="{{route('company_profile', $job->company_id)}}">
+                                        <img class="img-thumbnail" height="120px" width="120px" src="{{ optional($job->company)->image_path }}" alt=""></a>
+                                </div>
+                                <div class="job-tittle job-tittle2">
+                                    <a href="#">
+                                        <h4>{{ $job->job_title }}</h4>
+                                    </a>
+                                    <ul>
+                                        <li><a class="text-primary"  href="{{route('company_profile', $job->company_id)}}">{{ optional($job->company)->company_name }}</a></li>
+                                        {{--                                                <li><i class="fas fa-map-marker-alt"></i>{{ $job->location }}</li>--}}
+                                        <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
+                                        {{--                                                <li>SAR {{ number_format($job->salary, 2) }}</li>--}}
+                                        <li>3000 - 6000 SAR</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="job-tittle">
-                                <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-                                    <li>3000 - 6000 SAR</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="job_details.html">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="job_details.html"><img src="{{asset('assets/img/icon/job-list2.png')}}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-                                    <li>3000 - 6000 SAR</li>
-                                </ul>
+                            <div class="items-link items-link2 f-right">
+                                <a href="{{route('job_details', $job->job_id)}}" class="btn-border">View <i class="fa fa-eye"></i></a>
+                                <span>Posted At : {{ $job->posted_date }}</span>
                             </div>
                         </div>
-                        <div class="items-link f-right">
-                            <a href="job_details.html">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="job_details.html"><img src="{{asset('assets/img/icon/job-list3.png')}}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-                                    <li>3000 - 6000 SAR</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="job_details.html">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="job_details.html"><img src="{{asset('assets/img/icon/job-list4.png')}}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-                                    <li>3000 - 6000 SAR</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="job_details.html">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

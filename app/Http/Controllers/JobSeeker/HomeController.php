@@ -9,18 +9,29 @@ use App\Models\JobCategory;
 use App\Models\ProductAuction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        return view('job_seeker.home');
+        $fiveJobs = JobAdvertisement::where('application_deadline', '>=', Carbon::now())
+            ->where('is_published', true)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+        $categories = JobCategory::withCount('jobAdvertisementCategories')
+            ->get()
+            ->filter(function($category) {
+                return $category->job_advertisement_categories_count > 0;
+            });
+        return view('job_seeker.home', compact('fiveJobs', 'categories'));
     }
 
     public function jobsAds(Request $request)
     {
-        $query = JobAdvertisement::with('company');
-
+        $query = JobAdvertisement::with('company')->where('application_deadline', '>=', Carbon::now())
+            ->where('is_published', true);
         if ($request->filled('category')) {
             $query->whereHas('categories', function ($q) use ($request) {
                 $q->where('job_advertisement_categories.job_category_id', $request->category);
@@ -36,7 +47,7 @@ class HomeController extends Controller
         }
 
         if ($request->filled('experience')) {
-            $query->where('experience_level', $request->experience);
+            $query->where('experience_level', 'like', '%' . $request->experience . '%');
         }
 
         if ($request->filled('posted_within')) {

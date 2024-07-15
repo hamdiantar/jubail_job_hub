@@ -23,7 +23,7 @@
             <li class="nav-item {{ request()->is('admin/managers*') ? 'active' : '' }}">
                 <a href="{{route('admin.managers.index')}}">
                     <i class="fas fa-user-secret"></i>
-                    <p>Managers</p>
+                    <p>Admins</p>
                 </a>
             </li>
 

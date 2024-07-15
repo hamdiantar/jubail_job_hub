@@ -77,6 +77,13 @@ class JobSeekerController extends Controller
             'password' => 'required|string|min:8',
         ]);
         $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $jobSeeker = JobSeeker::where($loginType, $request->username)->first();
+
+        if ($jobSeeker && $jobSeeker->is_blocked) {
+            return back()->withErrors([
+                'username' => 'Your account is blocked.',
+            ])->onlyInput('username');
+        }
         if (Auth::guard('jobseeker')->attempt([$loginType => $request->username, 'password' => $request->password], $request->filled('remember'))) {
             return redirect()->intended(route('job_seeker.profile'))->with('success', 'Login successful.');
         }

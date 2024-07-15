@@ -115,20 +115,24 @@
                                     <div class="small-section-tittle2">
                                         <h4>Experience</h4>
                                     </div>
-                                    <label class="container">1-2 Years
-                                        <input type="radio" name="experience" value="1-2 Years" {{ $selectedExperience == '1-2 Years' ? 'checked' : '' }}>
+                                    <label class="container">Entry
+                                        <input type="radio" name="experience" value="Entry" {{ $selectedExperience == 'Entry' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="container">2-3 Years
-                                        <input type="radio" name="experience" value="2-3 Years" {{ $selectedExperience == '2-3 Years' ? 'checked' : '' }}>
+                                    <label class="container">Mid
+                                        <input type="radio" name="experience" value="Mid" {{ $selectedExperience == 'Mid' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="container">3-6 Years
-                                        <input type="radio" name="experience" value="3-6 Years" {{ $selectedExperience == '3-6 Years' ? 'checked' : '' }}>
+                                    <label class="container">Senior
+                                        <input type="radio" name="experience" value="Senior" {{ $selectedExperience == 'Senior' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="container">6-more..
-                                        <input type="radio" name="experience" value="6-more.." {{ $selectedExperience == '6-more..' ? 'checked' : '' }}>
+                                    <label class="container">Manager
+                                        <input type="radio" name="experience" value="Manager" {{ $selectedExperience == 'Manager' ? 'checked' : '' }}>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">other
+                                        <input type="radio" name="experience" value="other" {{ $selectedExperience == 'other' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

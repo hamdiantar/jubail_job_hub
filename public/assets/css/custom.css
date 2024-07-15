@@ -428,3 +428,13 @@ hr {
 .reading {
     background: #11254621;
 }
+.seemore{
+    background: white;
+    color: black;
+    border-radius: 10px;
+    margin-top: 13px;
+    padding: 20px
+}
+.single-job-items .job-tittle ul li {
+    color: #000000;
+}
