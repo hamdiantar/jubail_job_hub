@@ -39,7 +39,8 @@ class HomeController extends Controller
         }
 
         if ($request->filled('type')) {
-            $query->where('job_type', $request->type);
+            $query->where('job_type', 'like', '%' . $request->type . '%');
+
         }
 
         if ($request->filled('location')) {

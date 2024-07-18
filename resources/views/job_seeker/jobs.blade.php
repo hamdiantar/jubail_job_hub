@@ -61,8 +61,10 @@
                                     <div class="small-section-tittle2 ">
                                         <h4>Job Type</h4>
                                     </div>
-                                    <label class="container">Full Time
-                                        <input type="radio" name="type" value="Full Time" {{ $selectedType == 'Full Time' ? 'checked' : '' }}>
+
+
+                                    <label class="container">Full time
+                                        <input type="radio" name="type" value="Full-time" {{ $selectedType == 'Full-time' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container">Part Time
