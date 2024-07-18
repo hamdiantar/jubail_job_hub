@@ -9,7 +9,7 @@
                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                     <span>{{ Auth::guard('company')->user()->company_name }}
                         <span class="user-level">Joined At : {{ Auth::guard('company')->user()->joined_at }}</span>
-                        <span class="caret"></span>
+{{--                        <span class="caret"></span>--}}
                     </span>
                 </a>
             </div>

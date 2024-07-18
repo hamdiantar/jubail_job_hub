@@ -5,9 +5,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="contact-title mb-4">Login</h2>
+                    <h2 class="contact-title mb-4">Job Seeker | Login</h2>
                     <hr>
-                    <h6 class="mt-4 mb-4"><strong>Welcome Back Job Seeker</strong></h6>
+                    <h6 class="mt-4 mb-4"><strong>Welcome Back </strong></h6>
 
                 </div>
 
@@ -35,6 +35,9 @@
                             </div>
                             <div class="col-12 text-center mt-4">
                                 <span>Don't have an account? <a href="{{ route('job_seeker.register') }}" class="text-primary">Register</a></span>
+                                <br>
+                                <br>
+                                <span> <a href="#" class="text-primary">Forget Password?</a></span>
                             </div>
                         </div>
                     </form>

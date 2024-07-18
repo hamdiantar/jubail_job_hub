@@ -2,14 +2,14 @@
 
 @section('content')
     <section class="blog_area single-post-area section-padding section-padding1">
-        <div class="container">
-            <div class="row">
+        <div class="">
+            <div class="row col-md-12">
                 @include('job_seeker.shared.messages')
-                <div class="col-lg-3">
+                <div class="col-lg-2 navBAR">
                     @include('job_seeker.shared.sidebar')
                 </div>
                 <div class="col-lg-9 text-center posts-list">
-                    <div style="border-top: none;" class="comment-form">
+                    <div style="border-top: none;margin-left: 39px;" class="comment-form">
                         <h2 class="contact-title text-center">My Applications</h2>
                         <hr class="mb-4">
                         <section class="section-top-border">
@@ -17,7 +17,7 @@
                                 <table id="" class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Application ID</th>
                                         <th>Job Title</th>
                                         <th>Company</th>
                                         <th>Application Date</th>

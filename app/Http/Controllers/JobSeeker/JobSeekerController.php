@@ -243,7 +243,7 @@ class JobSeekerController extends Controller
         $data['application_date'] = now();
         $app = Application::create($data);
         ApplicationStatus::create([
-           'status' => 'Pending',
+           'status' => \App\Constants\ApplicationStatus::SUBMITTED,
            'application_id' => $app->application_id,
            'updated_date' => now(),
         ]);

@@ -7,13 +7,12 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="right-caption">
                         <div class="section-tittle section-tittle2">
-                            <span>What we are doing</span>
                             <h2>Connecting Talent with Opportunity in Jubail</h2>
                         </div>
                         <div class="support-caption">
-                            <p class="pera-top">In Jubail City, we understand the challenges both employers and job seekers face. Jubail Job Hub is dedicated to bridging this gap, providing a streamlined platform for job advertisements across all sectors.</p>
-                            <p>Our mission is to simplify the job-seeking and employee recruitment processes for everyone involved. Employers can post detailed job advertisements, while job seekers can easily search, filter, and apply for positions that match their qualifications.</p>
-                            <p>We aim to improve the matching process between job seekers and employers, reducing the time and effort required to fill positions. By maintaining accurate and up-to-date information about job postings and applications, we facilitate better decision-making for all stakeholders.</p>
+                            <p class="pera-top text-dark">In Jubail City, we understand the challenges both employers and job seekers face. Jubail Job Hub is dedicated to bridging this gap, providing a streamlined platform for job advertisements across all sectors.</p>
+                            <p class="pera-top text-dark">Our mission is to simplify the job-seeking and employee recruitment processes for everyone involved. Employers can post detailed job advertisements, while job seekers can easily search, filter, and apply for positions that match their qualifications.</p>
+                            <p class="pera-top text-dark">We aim to improve the matching process between job seekers and employers, reducing the time and effort required to fill positions. By maintaining accurate and up-to-date information about job postings and applications, we facilitate better decision-making for all stakeholders.</p>
                         </div>
                     </div>
                 </div>

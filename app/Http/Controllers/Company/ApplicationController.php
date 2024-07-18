@@ -39,7 +39,7 @@ class ApplicationController extends Controller
         $application = Application::findOrFail($id);
         $status = $request->input('status');
 
-        if ($status === ApplicationStatus::INTERVIEWING) {
+        if ($status === ApplicationStatus::INTERVIEW_SCHEDULED) {
             $application->interview_date = $request->input('interview_date');
         }
 

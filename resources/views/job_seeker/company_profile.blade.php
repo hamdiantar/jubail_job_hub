@@ -134,18 +134,7 @@
                                 <li class="text-white"><i class="fas fa-inbox mr-2"></i> {{$company->email}}</li>
                             </ul>
                         </aside>
-                        <aside class="single_sidebar_widget single_sidebar_widget2 popular_post_widget">
-                            <h3 class="widget_title text-white text-center">Recent Jobs</h3>
-                            <div class="media post_item">
-                                <img src="{{asset('assets/img/post/post_1.png')}}" alt="post">
-                                <div class="media-body">
-                                    <a href="#">
-                                        <h3 class="text-white">Hr Manager</h3>
-                                    </a>
-                                    <p class="text-white">January 12, 2019</p>
-                                </div>
-                            </div>
-                        </aside>
+
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
                             <i class="fa fa-arrow-right"></i>
                         </button>
                     </div>
-                    <form action="{{ route('admin.job_ads.update', $package->package_id) }}" method="POST">
+                    <form action="{{ route('admin.packages.update', $package->package_id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         @include('admin.packages.form')

@@ -81,8 +81,6 @@ class JobAdvertisementController extends Controller
     public function update(Request $request, JobAdvertisement $jobAd)
     {
         $data = $request->validate([
-            'company_id' => 'required|integer',
-            'admin_id' => 'required|integer',
             'job_title' => 'required|string|max:255',
             'job_description' => 'required|string',
             'job_type' => 'required|string|max:255',

@@ -2,15 +2,14 @@
 
 @section('content')
     <section class="blog_area single-post-area section-padding section-padding1">
-        <div class="container">
-            @include('job_seeker.shared.messages')
-
-            <div class="row justify-content-center">
-                <div class="col-lg-3">
+        <div class="">
+            <div class="row col-md-12">
+                @include('job_seeker.shared.messages')
+                <div class="col-lg-2 navBAR">
                     @include('job_seeker.shared.sidebar')
                 </div>
-                <div class="col-lg-8 posts-list">
-                    <div style="    border-top: none;" class="comment-form">
+                <div class="col-lg-9 posts-list">
+                    <div style="    border-top: none;margin-left: 39px;" class="comment-form">
                         <h2 class="contact-title text-center">Update Profile</h2>
                         <hr class="mb-4">
                         <p class="mt-4 mb-4  m-auto">

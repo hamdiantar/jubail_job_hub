@@ -4,10 +4,11 @@
     <div class="support-company-area fix section-padding2">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
+                <div class="col-xl-12 col-lg-12 text-center">
                     <div class="right-caption">
                         <div class="section-tittle section-tittle2">
-                            <span>Contact with us</span>
+                            <span style="    font-size: 42px;
+    text-transform: none;">Contact us</span>
                         </div>
                     </div>
                 </div>

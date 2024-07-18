@@ -71,3 +71,7 @@
 .subMenuActive {
     background: #3b5787;
 }
+label {
+    color: #000000 !important;
+    font-size: 14px !important;
+}

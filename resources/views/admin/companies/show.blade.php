@@ -15,6 +15,8 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item"><i class="mr-2 fa fa-building"></i> <strong class="mr-3">Company Name:</strong> {{ $company->company_name }}</li>
+                            <li class="list-group-item"><i class="mr-2 fa fa-comment-dots"></i> <strong class="mr-3">Company Email:</strong> {{ $company->email }}</li>
+
                             <li class="list-group-item"><i class="mr-2 fa fa-industry"></i> <strong class="mr-3">Industry:</strong> {{ $company->industry }}</li>
                             <li class="list-group-item"><i class="mr-2 fa fa-users"></i> <strong class="mr-3">Company Size:</strong> {{ $company->company_size }}</li>
                             <li class="list-group-item"><i class="mr-2 fa fa-phone"></i> <strong class="mr-3">Phone Number 1:</strong> {{ $company->phone_number_1 }}</li>
@@ -28,15 +30,11 @@
 
                                 <p> {!! $company->about_company !!}</p>
                             </li>
-                            <li class="list-group-item"><i class="mr-2 fa fa-info-circle"></i> <strong class="mr-3">Status:</strong>
-                                @if($company->status == 'blocked')
-                                    <span class="text-danger bold">Blocked</span>
-                                @elseif($company->status == 'accepted')
-                                    <span class="text-success bold">Accepted</span>
-                                @elseif($company->status == 'rejected')
-                                    <span class="text-danger bold">Rejected</span>
+                            <li class="list-group-item"><i class="mr-2 fa fa-info-circle"></i> <strong class="mr-3">Blocked?:</strong>
+                                @if($company->is_blocked)
+                                    <span class="text-danger bold">YES</span>
                                 @else
-                                    <span class="text-warning bold">Pending</span>
+                                    <span class="text-success bold">NO</span>
                                 @endif
                             </li>
                             <li class="list-group-item"><i class="mr-2 fa fa-briefcase"></i> <strong class="mr-3">Job Advertisements Count:</strong> {{ $company->jobAdvertisements->count() }}</li>

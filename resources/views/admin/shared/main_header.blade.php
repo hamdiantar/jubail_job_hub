@@ -86,8 +86,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('admin.account.view') }}"><i class="flaticon-user"></i> My Profile</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="flaticon-cogs"></i> Setting</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" id="logout-link"><i class="flaticon-log"></i> Logout</a>
                     </li>
                 </ul>

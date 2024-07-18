@@ -101,8 +101,17 @@ class CompanyController extends Controller
             'password' => 'required|string|min:8',
         ]);
         $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $company = Company::where($loginType, $request->username)->first();
+
+        if ($company && $company->is_blocked) {
+            return back()->withErrors([
+                'username' => 'Your account is blocked.',
+            ])->onlyInput('username');
+        }
         if (Auth::guard('company')->attempt([$loginType => $request->username, 'password' => $request->password], $request->filled('remember'))) {
-            return redirect()->intended(route('company.dashboard'))->with('success', 'Login successful.');
+            return redirect()->to(route('company.dashboard'))->with('success', 'Login successful.');
         }
 
         return back()->withErrors([

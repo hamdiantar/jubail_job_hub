@@ -18,7 +18,7 @@
                                     <th>Industry</th>
                                     <th>Phone Number</th>
                                     <th>Website</th>
-                                    <th>Status</th>
+                                    <th>Is Blocked?</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -31,14 +31,10 @@
                                         <td>{{ $company->phone_number_1 }}</td>
                                         <td><a href="{{ $company->website_url }}" target="_blank">{{ $company->website_url }}</a></td>
                                         <td>
-                                            @if($company->status == 'blocked')
-                                                <span class="text-danger bold">Blocked</span>
-                                            @elseif($company->status == 'accepted')
-                                                <span class="text-success bold">Accepted</span>
-                                            @elseif($company->status == 'rejected')
-                                                <span class="text-danger bold">Rejected</span>
+                                            @if($company->is_blocked)
+                                                <span class="text-danger bold">YES</span>
                                             @else
-                                                <span class="text-warning bold">Pending</span>
+                                                <span class="text-success bold">NO</span>
                                             @endif
                                         </td>
                                         <td>
@@ -46,23 +42,7 @@
                                                 <a href="{{ route('admin.companies.show', $company->company_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="View">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                @if($company->status != 'accepted')
-                                                    <form action="{{ route('admin.companies.accept', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.accept', $company->company_id) }}', 'accept');">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Accept">
-                                                            <i class="fa fa-check"></i>
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                                @if($company->status != 'rejected')
-                                                    <form action="{{ route('admin.companies.reject', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.reject', $company->company_id) }}', 'reject');">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Reject">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                                @if($company->status == 'blocked')
+                                                @if($company->is_blocked)
                                                     <form action="{{ route('admin.companies.unblock', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.unblock', $company->company_id) }}', 'unblock');">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Unblock">

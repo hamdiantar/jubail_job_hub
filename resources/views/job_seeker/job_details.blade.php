@@ -120,6 +120,15 @@
                     <div class="post-details3 mb-50">
                         <!-- Small Section Tittle -->
                         <div class="small-section-tittle">
+                            <h4>Job Categories</h4>
+                        </div>
+                        @foreach($job->categories as $cate)
+                            <span class="badge badge-dark">{{$cate->job_category_name}}</span>
+                        @endforeach
+                    </div>
+                    <div class="post-details3 mb-50">
+                        <!-- Small Section Tittle -->
+                        <div class="small-section-tittle">
                             <h4>Company Information</h4>
                         </div>
                         <span>{{ $job->company->company_name }}</span>

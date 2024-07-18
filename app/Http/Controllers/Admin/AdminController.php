@@ -69,7 +69,7 @@ class AdminController extends Controller
     public function viewAccount()
     {
         $admin = auth()->guard('admin')->user();
-        return view('admin.account.view', compact('admin'));
+        return redirect()->route('admin.managers.edit', $admin->admin_id);
     }
 
     public function updateAccount(Request $request)

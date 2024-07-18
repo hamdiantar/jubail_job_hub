@@ -28,7 +28,7 @@
                                         <td>{{ $application->job->job_title }}</td>
                                         <td>{{ $application->jobSeeker->fullname }}</td>
                                         <td>{{ date('Y-m-d H:i A', strtotime($application->application_date)) }}</td>
-                                        <td>{{ $application->applicationStatuses->last()->status ?? 'Pending' }}</td>
+                                        <td>{{ $application->applicationStatuses->last()->status ?? \App\Constants\ApplicationStatus::SUBMITTED }}</td>
                                         <td>
                                             <a href="{{ route('company.applications.show', $application->application_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="View">
                                                 <i class="fa fa-eye"></i>

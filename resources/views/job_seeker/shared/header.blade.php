@@ -45,18 +45,37 @@
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
                                 @auth('jobseeker')
-                                    <a href="{{route('job_seeker.job_alerts')}}" class="notification2"><i class="fa fa-bell text-white"></i> <span class="badge badge-danger">
-                                               {{ auth('jobseeker')->user()->jobAlerts()->where('is_read', false)->count() }}
-                                        </span></a>
-                                    <a href="{{route('job_seeker.profile')}}" class="btn head-btn1 authBTN"><i class="fa fa-user"></i> My Profile</a>
+                                    <a href="{{ route('job_seeker.job_alerts') }}" class="notification2">
+                                        <i class="fa fa-bell text-white"></i>
+                                        <span class="badge badge-danger">
+            {{ auth('jobseeker')->user()->jobAlerts()->where('is_read', false)->count() }}
+        </span>
+                                    </a>
+                                    <a href="{{ route('job_seeker.profile') }}" class="btn head-btn1 authBTN">
+                                        <i class="fa fa-user"></i> My Profile
+                                    </a>
                                     <a id="logout-link" style="color: red;" href="#" class="btn head-btn2 authBTN">
-                                        <i class="fa fa-power-off"></i> Logout</a>
-                                @else
-{{--                                    <a href="{{route('job_seeker.register')}}" class="btn head-btn1 aHeader">Register</a>--}}
-{{--                                    <a href="{{route('job_seeker.login')}}" class="btn head-btn2 aHeader">Login</a>--}}
+                                        <i class="fa fa-power-off"></i> Logout
+                                    </a>
+                                @endauth
+
+                                @auth('company')
+                                    <a href="{{ route('company.dashboard') }}" class="btn head-btn1 authBTN">
+                                        <i class="fa fa-cogs"></i> Dashboard
+                                    </a>
+                                @endauth
+
+                                @auth('admin')
+                                    <a href="{{ route('admin.dashboard') }}" class="btn head-btn1 authBTN">
+                                        <i class="fa fa-cogs"></i> Dashboard
+                                    </a>
+                                @endauth
+
+                               @if(!auth('admin')->check() && !auth('company')->check() && !auth('jobseeker')->check())
                                     <a href="#" class="btn head-btn1 aHeader" data-toggle="modal" data-target="#authModalRegister">Register</a>
                                     <a href="#" class="btn head-btn2 aHeader" data-toggle="modal" data-target="#authModalLogin">Login</a>
-                                @endauth
+                                    @endif
+
 
 
                             </div>

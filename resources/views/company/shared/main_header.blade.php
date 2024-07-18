@@ -1,9 +1,6 @@
 <div class="logo-header">
     <a href="#" class="logo">
-        <img style="    width: 100%;
-    height: 68px;
-    /* margin: auto; */
-    margin-top: 10px;" src="{{asset('logo.png')}}">
+        <img style="width: 100%; height: 68px; margin-top: 10px;" src="{{asset('logo.png')}}">
     </a>
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
@@ -37,36 +34,53 @@
                     <i class="fa fa-search"></i>
                 </a>
             </li>
+            @php
+                $company = auth('company')->user();
+            $todayApplications = \App\Models\Application::whereHas('job', function ($query) use ($company) {
+                $query->where('company_id', $company->company_id);
+            })->whereDate('application_date', \Illuminate\Support\Carbon::today())->get();
+            @endphp
 
             <li class="nav-item dropdown hidden-caret">
                 <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell"></i>
-                    <span class="notification">4</span>
+                    @if($todayApplications->count() > 0)
+                        <span class="notification">{{ $todayApplications->count() }}</span>
+                    @endif
                 </a>
                 <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
                     <li>
-                        <div class="dropdown-title">You have 4 new notification</div>
+                        <div class="dropdown-title">You have {{ $todayApplications->count() }} new notification{{ $todayApplications->count() > 1 ? 's' : '' }}</div>
                     </li>
                     <li>
                         <div class="notif-scroll scrollbar-outer">
                             <div class="notif-center">
-                                <a href="#">
-                                    <div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
-                                    <div class="notif-content">
-                                        <span class="block">
-                                            New user registered
-                                        </span>
-                                        <span class="time">5 minutes ago</span>
+                                @forelse($todayApplications as $application)
+                                    <a href="#">
+                                        <div class="notif-icon notif-primary"><i class="fa fa-briefcase"></i></div>
+                                        <div class="notif-content">
+                                <span class="block">
+                                    New application for {{ optional($application->job)->job_title }}
+                                </span>
+                                            <span class="time">{{ date('Y-m-d H:i A', strtotime($application->application_date)) }}</span>
+                                        </div>
+                                    </a>
+                                @empty
+                                    <div style="    margin: 23px;
+    text-align: center;
+    color: red;" class="notif-content">
+                                        <span class="block">No new applications today</span>
                                     </div>
-                                </a>
+                                @endforelse
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+                        <a class="see-all" href="{{ route('company.applications.index') }}">See all applications <i class="fa fa-angle-right"></i></a>
                     </li>
                 </ul>
             </li>
+
             <li style="margin-right: 22px;" class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">

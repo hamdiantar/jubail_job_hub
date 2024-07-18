@@ -30,10 +30,11 @@ class HomeController extends Controller
 
     public function jobsAds(Request $request)
     {
-        $query = JobAdvertisement::with('company')->where('application_deadline', '>=', Carbon::now())
+        $query = JobAdvertisement::latest('job_id')->with('company')->where('application_deadline', '>=', Carbon::now())
             ->where('is_published', true);
         if ($request->filled('category')) {
             $query->whereHas('categories', function ($q) use ($request) {
+//                dd($request->category);
                 $q->where('job_advertisement_categories.job_category_id', $request->category);
             });
         }
@@ -100,55 +101,9 @@ class HomeController extends Controller
     {
         return $locations = [
             'Industrial City',
-            'City Center',
-            'Industrial Area',
-            'Royal Commission' ,
-            'Corniche',
-            'University College',
-            'Technical Institute',
-            'Industrial College',
-            'Commercial Port',
-            'Airport',
-            'Mall',
-            'General Hospital',
-            'University Hospital',
-            'Sport City',
-            'Marina',
-            'Island',
-            'Waterfront',
-            'Fish Market',
-            'Downtown',
-            'Heritage Village',
-            'Refinery',
-            'Petrochemical Complex',
-            'Desalination Plant',
-            'Shipyard',
-            'Residential Area',
-            'Industrial Support Area',
-            'Commercial District',
-            'Chamber of Commerce',
-            'International School',
-            'Police Headquarters',
-            'Fire Station',
-            'Municipality',
-            'Saudi Electricity Company',
-            'Saudi Aramco Office',
-            'Saudi Telecom Office',
-            'Saudi Railways Organization',
-            'Medical Center',
-            'Shopping Center',
-            'Cultural Center',
-            'Beach',
-            'Public Park',
-            'Residential Compound',
-            'Golf Course',
-            'Bowling Alley',
-            'Tennis Club',
-            'Youth Center',
-            'Family Clinic',
-            'Veterinary Clinic',
-            'Car Dealerships',
-            'Gas Stations'
+            'Jubail city center',
+            'Alhamra',
+            'Jubail naval airport' ,
         ];
 
     }

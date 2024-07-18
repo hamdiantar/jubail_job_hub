@@ -99,10 +99,11 @@ hr {
     -webkit-transition: .4s;
     border-bottom: 1px solid #cecece;
     border-right: 1px solid #cecece;
-    border-radius: 0 0 32px 0;
+    border-radius: 0 0 32px 32px;
     box-shadow: 0px 2px 2px #858585b5;
     -o-transition: .4s;
     transition: .4s;
+    border-top: 2px dashed #03a9f4;
 }
 .apply-process-area .single-process .process-cap p {
     color: #ffffff;
@@ -167,6 +168,10 @@ hr {
 .panel:hover {
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
 }
+
+.single-job-items:hover {
+    background: #e9e9e9;
+}
 .panel-footer .btn:hover {
     border: 1px solid #112546 !important;
     background-color: #fff !important;
@@ -217,7 +222,7 @@ hr {
 }
 
 .panel-body {
-    height: 150px;
+    height: 220px;
     text-align: left;
     padding-left: 20px;
 }
@@ -306,7 +311,7 @@ hr {
     font-weight: bolder;
 }
 .blog_area a:hover, .blog_area a :hover {
-    background: -webkit-linear-gradient(131deg, #000000 0%, #000000 99%);
+    background: #03A9F4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -437,4 +442,8 @@ hr {
 }
 .single-job-items .job-tittle ul li {
     color: #000000;
+}
+.navBAR {
+    background: #112546;
+    margin-top: 10px;
 }

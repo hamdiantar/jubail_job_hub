@@ -90,10 +90,7 @@
                                         <input type="radio" name="type" value="Temporary" {{ $selectedType == 'Temporary' ? 'checked' : '' }}>
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="container">Freelance
-                                        <input type="radio" name="type" value="Internship" {{ $selectedType == 'Internship' ? 'checked' : '' }}>
-                                        <span class="checkmark"></span>
-                                    </label>
+
                                 </div>
                                 <!-- select-Categories End -->
                             </div>
@@ -223,11 +220,10 @@
                                                 <h4>{{ $job->job_title }}</h4>
                                             </a>
                                             <ul>
-                                                <li><a class="text-primary"  href="{{route('company_profile', $job->company_id)}}">{{ optional($job->company)->company_name }}</a></li>
-{{--                                                <li><i class="fas fa-map-marker-alt"></i>{{ $job->location }}</li>--}}
-                                                <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-{{--                                                <li>SAR {{ number_format($job->salary, 2) }}</li>--}}
-                                                <li>3000 - 6000 SAR</li>
+                                                <li><a class="text-primary"  href="{{route('company_profile', $job->company_id)}}">
+                                                        <i class="fas fa-home text-dark"></i> {{ optional($job->company)->company_name }}</a> </li>
+                                                <li><i class="fas fa-map-marker-alt text-dark"></i>Jubail</li>
+                                                <li> <i class="far fa-money-bill-alt text-dark"></i> {{$job->salary}} SAR</li>
                                             </ul>
                                         </div>
                                     </div>

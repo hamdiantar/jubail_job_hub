@@ -48,11 +48,11 @@
                                         <td>{{ $package->subscriptions_count }}</td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="{{ route('company.job_ads.edit', $package->package_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
+                                                <a href="{{ route('admin.packages.edit', $package->package_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 @if($package->subscriptions_count == 0)
-                                                    <button onclick="confirmDelete('{{ route('company.job_ads.destroy', $package->package_id) }}')" type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Remove">
+                                                    <button onclick="confirmDelete('{{ route('admin.packages.destroy', $package->package_id) }}')" type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Remove">
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 @else

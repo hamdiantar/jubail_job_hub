@@ -24,70 +24,29 @@
                     <div class="panel-footer">
                         <h3>0 SAR</h3>
                         <h4>per month</h4>
-                        <button class="btn btn-lg">Sign Up</button>
+                        <a href="{{route('company.register')}}" class="btn btn-lg">Sign Up</a>
                     </div>
                 </div>
             </div>
             <!-- Monthly Plan -->
+            @foreach(\App\Models\Package::where('is_available', 1)->get() as $package)
             <div class="col-sm-3 col-xs-12">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <h1><i class="ti-calendar text-dark"></i> Monthly Plan</h1>
+                        <h1><i class="ti-calendar text-dark"></i> {{$package->type}}</h1>
                     </div>
                     <div class="panel-body">
-                        <ul>
-                            <li>1- Unlimited Job Advertisements</li>
-                            <li>2- Priority Support</li>
-                            <li>3- Access to Premium Features</li>
-                        </ul>
+                      {!! $package->description !!}
                     </div>
                     <div class="panel-footer">
-                        <h3>100 SAR</h3>
-                        <h4>per month</h4>
-                        <button class="btn btn-lg">Sign Up</button>
+                        <h3>{{$package->price}} SAR</h3>
+                        <h4>{{$package->period}} months</h4>
+                        <a href="{{route('company.register')}}" class="btn btn-lg">Sign Up</a>
                     </div>
                 </div>
             </div>
-            <!-- Quarterly Plan -->
-            <div class="col-sm-3 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h1><i class="ti-calendar text-dark"></i> Quarterly Plan</h1>
-                    </div>
-                    <div class="panel-body">
-                        <ul>
-                            <li>1- Unlimited Job Advertisements</li>
-                            <li>2- Priority Support</li>
-                            <li>3- Access to Premium Features</li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <h3>250 SAR</h3>
-                        <h4>per quarter</h4>
-                        <button class="btn btn-lg">Sign Up</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Yearly Plan -->
-            <div class="col-sm-3 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h1><i class="ti-package text-dark"></i> Yearly Plan</h1>
-                    </div>
-                    <div class="panel-body">
-                        <ul>
-                            <li>1- Unlimited Job Advertisements</li>
-                            <li>2- Priority Support</li>
-                            <li>3- Access to Premium Features</li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <h3>900 SAR</h3>
-                        <h4>per year</h4>
-                        <button class="btn btn-lg">Sign Up</button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 

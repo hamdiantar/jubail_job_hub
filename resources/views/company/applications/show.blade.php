@@ -34,7 +34,7 @@
                                 <label for="status">Status</label>
                                 <select class="form-control" id="status" name="status" onchange="toggleInterviewDate(this.value)">
                                     @foreach(\App\Constants\ApplicationStatus::getStatuses() as $status)
-                                        <option value="{{ $status }}" {{ $application->applicationStatuses->last()->status == $status ? 'selected' : '' }}>{{ $status }}</option>
+                                        <option value="{{ $status }}" {{ $application->applicationStatuses && $application->applicationStatuses->isNotEmpty() && $application->applicationStatuses->last()->status == $status ? 'selected' : '' }}>{{ $status }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="notes">Notes</label>
-                                <textarea class="form-control" id="notes" name="notes" rows="4">{{ old('notes', $application->applicationStatuses->last()->notes) }}</textarea>
+                                <textarea class="form-control" id="notes" name="notes" rows="4">{{ old('notes', $application->applicationStatuses && $application->applicationStatuses->isNotEmpty() ? $application->applicationStatuses->last()->notes : '') }}</textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Update Status</button>
                         </form>
@@ -57,7 +57,7 @@
     <script>
         function toggleInterviewDate(status) {
             const interviewDateGroup = document.getElementById('interviewDateGroup');
-            if (status === '{{ \App\Constants\ApplicationStatus::INTERVIEWING }}') {
+            if (status === '{{ \App\Constants\ApplicationStatus::INTERVIEW_SCHEDULED }}') {
                 interviewDateGroup.style.display = 'block';
                 document.getElementById('interview_date').required = true;
             } else {

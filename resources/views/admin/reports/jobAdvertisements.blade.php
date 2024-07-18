@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label for="job_type">Job Type</label>
+                                    <label for="job_type">Company</label>
 
                                     <select name="company_id" class="form-control">
                                         <option value="">All Companies</option>

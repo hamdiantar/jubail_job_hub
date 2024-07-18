@@ -1,22 +1,15 @@
 @extends('job_seeker.shared.app')
 
 @section('content')
-{{--    <div class="slider-area ">--}}
-{{--        <div class="slider-active">--}}
-{{--            <div class="single-slider slider-height d-flex align-items-center"--}}
-{{--                 data-background="{{asset('assets/bg.png')}}">--}}
-{{--                <div class="container">--}}
-{{--                    <div class="row">--}}
-{{--                        <div style="margin-bottom: 400px;" class="col-xl-6">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- slider Area End-->
-    <!-- Our Services Start -->
+    <div style="    height: 300px;
+    background: #112546;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;" class="text-center w-100 ">
+        <h2 style="    color: white;
+    font-size: 54px;
+    font-weight: bolder;">Find Your Dream Job</h2>
+    </div>
     <div class="our-services section-pad-t30">
         <div class="container">
             <!-- Section Tittle -->
@@ -89,11 +82,10 @@
                                         <h4>{{ $job->job_title }}</h4>
                                     </a>
                                     <ul>
-                                        <li><a class="text-primary"  href="{{route('company_profile', $job->company_id)}}">{{ optional($job->company)->company_name }}</a></li>
-                                        {{--                                                <li><i class="fas fa-map-marker-alt"></i>{{ $job->location }}</li>--}}
-                                        <li><i class="fas fa-map-marker-alt"></i>Jubail</li>
-                                        {{--                                                <li>SAR {{ number_format($job->salary, 2) }}</li>--}}
-                                        <li>3000 - 6000 SAR</li>
+                                        <li><a class="text-primary"  href="{{route('company_profile', $job->company_id)}}">
+                                                <i class="fas fa-home text-dark"></i> {{ optional($job->company)->company_name }}</a> </li>
+                                        <li><i class="fas fa-map-marker-alt text-dark"></i>Jubail</li>
+                                        <li> <i class="far fa-money-bill-alt text-dark"></i> {{$job->salary}} SAR</li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,7 +102,15 @@
     </section>
 
     <div class="whole-wrap" id="haveCompany">
+
         <div class="container box_1170">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle white-text text-center">
+                        <h2> Join Us Now</h2>
+                    </div>
+                </div>
+            </div>
             <div class="section-top-border haveCompany">
                 <h3 class="mb-30">Join Us and Find the Best Candidates for Your Company</h3>
                 <div class="row">
@@ -152,7 +152,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle white-text text-center">
-                        <span>Apply process</span>
                         <h2> How it works</h2>
                     </div>
                 </div>
@@ -164,9 +163,7 @@
                             <span class="flaticon-search"></span>
                         </div>
                         <div class="process-cap">
-                            <h5>1. Search a job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
-                                laborea.</p>
+                            <h5>1. Search for a job </h5>
                         </div>
                     </div>
                 </div>
@@ -176,9 +173,8 @@
                             <span class="flaticon-curriculum-vitae"></span>
                         </div>
                         <div class="process-cap">
-                            <h5>2. Apply for job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
-                                laborea.</p>
+                            <h5>2. Apply for a job </h5>
+
                         </div>
                     </div>
                 </div>
@@ -189,8 +185,6 @@
                         </div>
                         <div class="process-cap">
                             <h5>3. Get your job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
-                                laborea.</p>
                         </div>
                     </div>
                 </div>
