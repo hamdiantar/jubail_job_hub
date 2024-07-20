@@ -7,7 +7,7 @@
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-                    <span>{{ Auth::guard('admin')->user()->fullname }}<span class="user-level">Administrator</span><span class="caret"></span></span>
+                    <span>{{ Auth::guard('admin')->user()->fullname }}<span class="user-level">Administrator</span></span>
                 </a>
             </div>
         </div>

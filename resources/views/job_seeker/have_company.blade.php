@@ -7,8 +7,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="right-caption">
                         <div class="section-tittle section-tittle2">
-                            <span>Have A Company?</span>
-                            <h2>Join With US Now</h2>
+                            <h2>Join US Now</h2>
                         </div>
                     </div>
                 </div>

@@ -36,36 +36,42 @@
                     <i class="fa fa-search"></i>
                 </a>
             </li>
+            @php
+                $todayCompanies = \App\Models\Company::whereDate('joined_at', \Illuminate\Support\Carbon::today())->get();
+            @endphp
 
             <li class="nav-item dropdown hidden-caret">
                 <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell"></i>
-                    <span class="notification">4</span>
+                    <span class="notification">{{ count($todayCompanies) }}</span>
                 </a>
                 <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
                     <li>
-                        <div class="dropdown-title">You have 4 new notification</div>
+                        <div class="dropdown-title">You have {{ count($todayCompanies) }} new notification(s)</div>
                     </li>
                     <li>
                         <div class="notif-scroll scrollbar-outer">
                             <div class="notif-center">
-                                <a href="#">
-                                    <div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
-                                    <div class="notif-content">
-                                        <span class="block">
-                                            New user registered
-                                        </span>
-                                        <span class="time">5 minutes ago</span>
-                                    </div>
-                                </a>
+                                @foreach ($todayCompanies as $company)
+                                    <a href="#">
+                                        <div class="notif-icon notif-primary"> <i class="fa fa-building"></i> </div>
+                                        <div class="notif-content">
+                                <span class="block">
+                                    {{ $company->company_name }} registered
+                                </span>
+                                            <span class="time">{{ $company->joined_at }}</span>
+                                        </div>
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+                        <a class="see-all" href="{{ route('admin.companies.index') }}">See all notifications<i class="fa fa-angle-right"></i> </a>
                     </li>
                 </ul>
             </li>
+
             <li style="margin-right: 22px;" class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">

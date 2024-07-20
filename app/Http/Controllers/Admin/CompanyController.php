@@ -38,23 +38,4 @@ class CompanyController extends Controller
         $company->save();
         return redirect()->route('admin.companies.index')->with('success', 'Company unblocked successfully.');
     }
-
-
-    public function accept($id)
-    {
-        $company = Company::findOrFail($id);
-        $company->admin_id = auth('admin')->user()->admin_id;
-        $company->status = 'accepted';
-        $company->save();
-        return redirect()->route('admin.companies.index')->with('success', 'Company accepted successfully.');
-    }
-
-    public function reject($id)
-    {
-        $company = Company::findOrFail($id);
-        $company->admin_id = auth('admin')->user()->admin_id;
-        $company->status = 'rejected';
-        $company->save();
-        return redirect()->route('admin.companies.index')->with('success', 'Company rejected successfully.');
-    }
 }

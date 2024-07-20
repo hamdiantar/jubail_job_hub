@@ -101,7 +101,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('company.profile') }}"><i class="flaticon-user"></i> My Profile</a>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" id="logout-link"><i class="flaticon-log"></i> Logout</a>
                     </li>
                 </ul>
@@ -113,6 +112,6 @@
 <form id="logout-form" action="{{ route('company.logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
-<form id="logout-form2" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+<form id="logout-form2" action="{{ route('company.logout') }}" method="POST" style="display: none;">
     @csrf
 </form>

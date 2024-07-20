@@ -17,8 +17,8 @@
                     </div>
                     <div class="panel-body">
                         <ul>
-                            <li>1- Login Free</li>
-                            <li>2- Post up to 5 Job Advertisements</li>
+                            <li><p>1- Login Free</p></li>
+                            <li><p>2- Post up to 5 Job Advertisements</p></li>
                         </ul>
                     </div>
                     <div class="panel-footer">

@@ -103,7 +103,7 @@ hr {
     box-shadow: 0px 2px 2px #858585b5;
     -o-transition: .4s;
     transition: .4s;
-    border-top: 2px dashed #03a9f4;
+    border-top: 1px solid #112546;
 }
 .apply-process-area .single-process .process-cap p {
     color: #ffffff;

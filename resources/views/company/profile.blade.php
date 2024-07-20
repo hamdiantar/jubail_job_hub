@@ -81,7 +81,7 @@
                                     <input type="text" class="form-control @error('phone_number_1') is-invalid @enderror" id="phone_number_1"
                                            name="phone_number_1" value="{{ old('phone_number_1', $company->phone_number_1) }}"
                                            placeholder="Enter Primary Phone Number" onkeypress="return isNumber(event)">
-                                    <small class="form-text text-muted">The phone number must start with +96605 or 05 followed by 8 digits.</small>
+                                    <small class="form-text text-muted">The phone number must start with +966 or 05 followed by 8 digits.</small>
                                     @error('phone_number_1')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -92,7 +92,7 @@
                                     <input type="text" class="form-control @error('phone_number_2') is-invalid @enderror" id="phone_number_2"
                                            name="phone_number_2" value="{{ old('phone_number_2', $company->phone_number_2) }}"
                                            placeholder="Enter Secondary Phone Number" onkeypress="return isNumber(event)">
-                                    <small class="form-text text-muted">The phone number must start with +96605 or 05 followed by 8 digits.</small>
+                                    <small class="form-text text-muted">The phone number must start with +966 or 05 followed by 8 digits.</small>
                                     @error('phone_number_2')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
