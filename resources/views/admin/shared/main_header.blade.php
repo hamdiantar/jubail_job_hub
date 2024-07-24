@@ -53,7 +53,7 @@
                         <div class="notif-scroll scrollbar-outer">
                             <div class="notif-center">
                                 @foreach ($todayCompanies as $company)
-                                    <a href="#">
+                                    <a href="{{ route('admin.companies.show', $company->company_id) }}">
                                         <div class="notif-icon notif-primary"> <i class="fa fa-building"></i> </div>
                                         <div class="notif-content">
                                 <span class="block">

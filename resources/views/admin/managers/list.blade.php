@@ -34,13 +34,14 @@
                                         <td>
                                             <div class="form-button-action">
 
-                                                <a href="{{ route('admin.managers.edit', $manager->admin_id) }}" class="btn btn-link  btn-lg" data-toggle="tooltip" title="" data-original-title="Edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-
+{{--                                                <a href="{{ route('admin.managers.edit', $manager->admin_id) }}" class="btn btn-link  btn-lg" data-toggle="tooltip" title="" data-original-title="Edit">--}}
+{{--                                                    <i class="fa fa-edit"></i>--}}
+{{--                                                </a>--}}
+                                                @if($manager->admin_id != auth('admin')->user()->admin_id)
                                                     <button onclick="confirmDelete('{{ route('admin.managers.destroy', $manager->admin_id) }}')" type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="" data-original-title="Remove">
                                                         <i class="fa fa-times"></i>
                                                     </button>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>

@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $fiveJobs = JobAdvertisement::where('application_deadline', '>=', Carbon::now())
+        $fiveJobs = JobAdvertisement::where('status', 1)->where('application_deadline', '>=', Carbon::now())
             ->where('is_published', true)
             ->inRandomOrder()
             ->take(5)
@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function jobsAds(Request $request)
     {
-        $query = JobAdvertisement::latest('job_id')->with('company')->where('application_deadline', '>=', Carbon::now())
+        $query = JobAdvertisement::where('status', 1)->latest('job_id')->with('company')->where('application_deadline', '>=', Carbon::now())
             ->where('is_published', true);
         if ($request->filled('category')) {
             $query->whereHas('categories', function ($q) use ($request) {
@@ -79,7 +79,6 @@ class HomeController extends Controller
             'selectedExperience' => $request->experience,
             'selectedPostedWithin' => $request->posted_within,
             'selectedCompany' => $request->company,
-            'selectedLocation' => $request->location,
             'locations' => $this->getLocations(),
         ]);
     }
@@ -94,7 +93,6 @@ class HomeController extends Controller
         $job = JobAdvertisement::findOrFail($id);
         return view('job_seeker.job_details', compact('job'));
     }
-
 
 
     private function getLocations()

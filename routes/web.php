@@ -14,6 +14,7 @@ use App\Http\Controllers\Company\ReviewController;
 use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 use App\Http\Controllers\Company\SubscriptionController;
 use App\Http\Controllers\Admin\SubscriptionController as AdminSubscriptionController;
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\JobSeeker\HomeController;
 use App\Http\Controllers\JobSeeker\JobSeekerController;
 use App\Http\Controllers\Admin\JobSeekerController as AdminJobSeekerController;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('job_seeker.home');
+Route::get('password/forget', [ForgetPasswordController::class, 'forget'])->name('password.forget');
+Route::get('password/reset', [ForgetPasswordController::class, 'reset'])->name('password.reset');
+Route::post('password/confirmResetPassword', [ForgetPasswordController::class, 'confirmResetPassword'])->name('password.confirmResetPassword');
 Route::view('about_us', 'job_seeker.about_us')->name('about_us');
 Route::view('contact_us', 'job_seeker.contact_us')->name('contact_us');
 Route::view('have_company', 'job_seeker.have_company')->name('have_company');

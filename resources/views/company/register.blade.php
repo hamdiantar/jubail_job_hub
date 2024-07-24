@@ -112,15 +112,11 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="industry">Industry  <strong class="text-danger">*</strong></label>
-                                    <select class="form-control" name="industry" id="industry">
-                                        <option value="">Select Industry</option>
-                                        <option value="Technology">Technology</option>
-                                        <option value="Finance">Finance</option>
-                                        <option value="Healthcare">Healthcare</option>
-                                        <option value="Education">Education</option>
-                                        <option value="Retail">Retail</option>
-                                        <!-- Add other industries as needed -->
+                                    <label for="industry">Industry <strong class="text-danger">*</strong></label>
+                                    <select class="form-control select2" name="industry[]" id="industry" multiple>
+                                        @foreach (\App\Constants\Industry::INDUSTRIES as $industry)
+                                            <option value="{{ $industry }}" {{ in_array($industry, old('industry', [])) ? 'selected' : '' }}>{{ $industry }}</option>
+                                        @endforeach
                                     </select>
                                     <span class="text-danger">@error('industry') {{ $message }} @enderror</span>
                                 </div>

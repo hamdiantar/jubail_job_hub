@@ -45,6 +45,7 @@ class JobAdvertisementController extends Controller
         ]);
         $data['company_id'] = auth('company')->user()->company_id;
         $data['posted_date'] = now();
+        $data['skills_required'] = $request->skills_required ?? " ";
 
         $jobAd = JobAdvertisement::create($data);
         $jobAd->categories()->sync($request->categories);
@@ -98,7 +99,7 @@ class JobAdvertisementController extends Controller
             'advertise' => 'boolean',
             'categories' => 'array'
         ]);
-
+        $data['skills_required'] = $request->skills_required ?? " ";
         $jobAd->update($data);
         $jobAd->categories()->sync($request->categories);
 

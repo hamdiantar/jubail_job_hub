@@ -28,7 +28,7 @@ class JobAdvertisementController extends Controller
         $job = JobAdvertisement::findOrFail($id);
         $job->admin_id = auth('admin')->user()->admin_id;
 
-        $job->is_published = true;
+        $job->status = true;
         $job->save();
 
         return redirect()->back()->with('success', 'Job advertisement accepted and published.');
@@ -39,7 +39,7 @@ class JobAdvertisementController extends Controller
         $job = JobAdvertisement::findOrFail($id);
         $job->admin_id = auth('admin')->user()->admin_id;
 
-        $job->is_published = false;
+        $job->status = false;
         $job->save();
 
         return redirect()->back()->with('success', 'Job advertisement rejected and unpublished.');

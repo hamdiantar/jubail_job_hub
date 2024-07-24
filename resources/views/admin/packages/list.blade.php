@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Packages [ <span class="badge badge-danger badge-count">{{ $packages->count() }}</span> ] | list</h4>
-                        <button onclick="window.location.href='{{ route('company.job_ads.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
+                        <button onclick="window.location.href='{{ route('admin.packages.create') }}'" class="btn btn-icon btn-rounded btn-primary float-right">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>

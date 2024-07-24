@@ -164,6 +164,8 @@
                         </div>
                         <div class="process-cap">
                             <h5>1. Search for a job </h5>
+                            <p>find job opportunities in Jubail City across various sectors, including restaurants, businesses, and more. Use our advanced search tools to filter jobs based on your qualifications and preferences.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -174,7 +176,11 @@
                         </div>
                         <div class="process-cap">
                             <h5>2. Apply for a job </h5>
+                            <p>
+                                Seamlessly submit your application to potential employers. Our platform allows you to upload your resume, fill out relevant information, and directly apply for jobs that match your skills and experience.
 
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -185,6 +191,9 @@
                         </div>
                         <div class="process-cap">
                             <h5>3. Get your job</h5>
+                            <p>
+                                Connect with employers and secure your desired position. Jubail Job Hub facilitates the recruitment process, making it easier for you to find and land the perfect job in Jubail City.
+                            </p>
                         </div>
                     </div>
                 </div>

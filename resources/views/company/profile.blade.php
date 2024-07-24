@@ -134,14 +134,11 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="industry">Industry</label>
-                                    <select class="form-control @error('industry') is-invalid @enderror" name="industry" id="industry">
+                                    <select class="form-control select2 @error('industry') is-invalid @enderror" name="industry[]" id="industry" multiple>
                                         <option value="">Select Industry</option>
-                                        <option value="Technology" {{ old('industry', $company->industry) == 'Technology' ? 'selected' : '' }}>Technology</option>
-                                        <option value="Finance" {{ old('industry', $company->industry) == 'Finance' ? 'selected' : '' }}>Finance</option>
-                                        <option value="Healthcare" {{ old('industry', $company->industry) == 'Healthcare' ? 'selected' : '' }}>Healthcare</option>
-                                        <option value="Education" {{ old('industry', $company->industry) == 'Education' ? 'selected' : '' }}>Education</option>
-                                        <option value="Retail" {{ old('industry', $company->industry) == 'Retail' ? 'selected' : '' }}>Retail</option>
-                                        <!-- Add other industries as needed -->
+                                        @foreach (\App\Constants\Industry::INDUSTRIES as $industry)
+                                            <option value="{{ $industry }}" {{ in_array($industry, explode(',', old('industry', $company->industry))) ? 'selected' : '' }}>{{ $industry }}</option>
+                                        @endforeach
                                     </select>
                                     @error('industry')
                                     <div class="invalid-feedback">{{ $message }}</div>

@@ -34,7 +34,7 @@
                                 <button type="submit" class="button button-contactForm boxed-btn">Login</button>
                             </div>
                             <div class="col-12 text-center mt-4">
-                                <span> <a href="#" class="text-primary">Forget Password?</a></span>
+                                <span> <a href="{{route('password.forget').'?type=admin'}}" class="text-primary">Forget Password?</a></span>
                             </div>
 
                         </div>

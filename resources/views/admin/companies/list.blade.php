@@ -24,7 +24,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($companies as $company)
-                                    <tr>
+                                    <tr >
                                         <td>{{ $company->company_id }}</td>
                                         <td>{{ $company->company_name }}</td>
                                         <td>{{ $company->industry }}</td>
@@ -45,15 +45,15 @@
                                                 @if($company->is_blocked)
                                                     <form action="{{ route('admin.companies.unblock', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.unblock', $company->company_id) }}', 'unblock');">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Unblock">
-                                                            <i class="fa fa-unlock"></i>
+                                                        <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Unblock">
+                                                            <i class="fa fa-lock"></i>
                                                         </button>
                                                     </form>
                                                 @else
                                                     <form action="{{ route('admin.companies.block', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.block', $company->company_id) }}', 'block');">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Block">
-                                                            <i class="fa fa-lock"></i>
+                                                        <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Block">
+                                                            <i class="fa fa-unlock"></i>
                                                         </button>
                                                     </form>
                                                 @endif

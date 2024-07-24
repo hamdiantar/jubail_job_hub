@@ -17,6 +17,9 @@ class AdminController extends Controller
 {
     public function showLoginForm()
     {
+        Auth::guard('admin')->logout();
+        Auth::guard('company')->logout();
+        Auth::guard('jobseeker')->logout();
         return view('admin.login');
     }
 
@@ -29,7 +32,7 @@ class AdminController extends Controller
 
         $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if (Auth::guard('admin')->attempt([$loginType => $request->username, 'password' => $request->password], $request->filled('remember'))) {
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->route('admin.dashboard');
         }
         throw ValidationException::withMessages([
             'username' => [trans('auth.failed')],

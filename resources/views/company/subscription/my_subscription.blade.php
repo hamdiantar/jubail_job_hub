@@ -10,6 +10,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">My Subscriptions</h4>
+
+                        <button onclick="window.location.href='{{ route('company.subscription.index') }}'"
+                                class="btn btn-icon w-25 btn-warning float-right">
+                            <i class="fa fa-eye"></i> View Packages
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

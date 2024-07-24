@@ -8,7 +8,8 @@ class JobSeeker extends Authenticatable
 {
     protected $table = 'job_seekers';
     protected $primaryKey = 'job_seeker_id';
-    protected $fillable = ['fullname', 'email', 'password', 'username', 'phone_number', 'experience_level', 'address', 'cv', 'joined_at', 'is_blocked'];
+    protected $fillable = ['fullname', 'email', 'password', 'username', 'phone_number', 'experience_level',
+        'address', 'cv', 'joined_at', 'is_blocked','password_reset_code'];
     protected $dates = ['joined_at'];
     protected $guard = 'jobseeker';
     public $timestamps = false;

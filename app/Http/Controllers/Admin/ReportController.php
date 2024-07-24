@@ -34,6 +34,8 @@ class ReportController extends Controller
 
     public function applicationsReport(Request $request)
     {
+        \DB::enableQueryLog();
+
         $applications = Application::query();
 
         if ($request->filled('company_id')) {
@@ -47,8 +49,14 @@ class ReportController extends Controller
         }
 
         if ($request->filled('status')) {
-            $applications->whereHas('applicationStatuses', function ($query) use ($request) {
-                $query->where('status', $request->input('status'));
+            $status = $request->input('status');
+            $applications->whereHas('applicationStatuses', function ($query) use ($status) {
+                $query->where('status', $status)
+                    ->whereIn('application_status_id', function($subquery) {
+                        $subquery->selectRaw('MAX(application_status_id)')
+                            ->from('application_status')
+                            ->groupBy('application_id');
+                    });
             });
         }
 

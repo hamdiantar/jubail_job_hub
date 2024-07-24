@@ -54,7 +54,7 @@ class CompanyController extends Controller
             'website_url' => 'nullable|url|max:255',
             'linkedin_url' => 'nullable|url|max:255',
             'twitter_url' => 'nullable|url|max:255',
-            'industry' => 'required|string|max:255',
+            'industry' => 'required|array',
             'company_size' => ['required', Rule::in(['small', 'medium', 'large'])],
             'about_company' => 'required|string|max:5000',
             'founded_at' => 'required|date',
@@ -76,7 +76,7 @@ class CompanyController extends Controller
             'website_url' => $request->website_url,
             'linkedin_url' => $request->linkedin_url,
             'twitter_url' => $request->twitter_url,
-            'industry' => $request->industry,
+            'industry' => implode(',', $request->industry), // Convert array to comma-separated string
             'company_size' => $request->company_size,
             'about_company' => $request->about_company,
             'founded_at' => $request->founded_at,
@@ -90,6 +90,9 @@ class CompanyController extends Controller
     // Show the login form
     public function showLoginForm()
     {
+        Auth::guard('admin')->logout();
+        Auth::guard('company')->logout();
+        Auth::guard('jobseeker')->logout();
         return view('company.login');
     }
 
@@ -158,7 +161,7 @@ class CompanyController extends Controller
             'website_url' => 'nullable|url|max:255',
             'linkedin_url' => 'nullable|url|max:255',
             'twitter_url' => 'nullable|url|max:255',
-            'industry' => 'required|string|max:255',
+            'industry' => 'required|array',
             'company_size' => ['required', Rule::in(['small', 'medium', 'large'])],
             'about_company' => 'required|string|max:5000',
             'founded_at' => 'required|date',
@@ -179,7 +182,7 @@ class CompanyController extends Controller
             'website_url' => $request->website_url,
             'linkedin_url' => $request->linkedin_url,
             'twitter_url' => $request->twitter_url,
-            'industry' => $request->industry,
+            'industry' => implode(',', $request->industry), // Convert array to comma-separated string
             'company_size' => $request->company_size,
             'about_company' => $request->about_company,
             'founded_at' => $request->founded_at,

@@ -67,6 +67,9 @@ class JobSeekerController extends Controller
 
     public function showLoginForm()
     {
+        Auth::guard('admin')->logout();
+        Auth::guard('company')->logout();
+        Auth::guard('jobseeker')->logout();
         return view('job_seeker.login');
     }
 
@@ -85,7 +88,7 @@ class JobSeekerController extends Controller
             ])->onlyInput('username');
         }
         if (Auth::guard('jobseeker')->attempt([$loginType => $request->username, 'password' => $request->password], $request->filled('remember'))) {
-            return redirect()->intended(route('job_seeker.profile'))->with('success', 'Login successful.');
+            return redirect()->route('job_seeker.profile')->with('success', 'Login successful.');
         }
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',

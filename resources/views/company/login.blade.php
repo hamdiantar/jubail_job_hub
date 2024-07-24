@@ -37,7 +37,7 @@
                                 <span>Don't have an account? <a href="{{ route('company.register') }}" class="text-primary">Register</a></span>
                                 <br>
                                 <br>
-                                <span> <a href="#" class="text-primary">Forget Password?</a></span>
+                                <span> <a href="{{route('password.forget').'?type=company'}}" class="text-primary">Forget Password?</a></span>
                             </div>
                         </div>
                     </form>

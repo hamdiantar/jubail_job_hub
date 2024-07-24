@@ -36,25 +36,25 @@
                                         <td>{{ $job->job_id }}</td>
                                         <td>{{ $job->company->company_name }}</td>
                                         <td><a href="{{ route('job_details', $job->job_id) }}" target="_blank">{{ $job->job_title }}</a></td>
-                                        <td>{{ $job->is_published ? 'Published' : 'Not Published' }}</td>
+                                        <td>{{ $job->status ? 'Published' : 'Not Published' }}</td>
                                         <td>
                                             <div class="form-button-action">
-                                                @if(!$job->is_published)
+{{--                                                @if(!$job->status)--}}
                                                     <form action="{{ route('admin.job_ads.accept', $job->job_id) }}" method="POST" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Accept and Publish">
                                                             <i class="fa fa-check"></i>
                                                         </button>
                                                     </form>
-                                                @endif
-                                                @if($job->is_published)
+{{--                                                @endif--}}
+{{--                                                @if($job->status)--}}
                                                     <form action="{{ route('admin.job_ads.reject', $job->job_id) }}" method="POST" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Reject and Unpublish">
                                                             <i class="fa fa-times"></i>
                                                         </button>
                                                     </form>
-                                                @endif
+{{--                                                @endif--}}
                                             </div>
                                         </td>
                                     </tr>

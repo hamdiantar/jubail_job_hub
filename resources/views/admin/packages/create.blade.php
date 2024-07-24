@@ -10,11 +10,11 @@
                     <div class="card-header">
                         <h4 class="card-title">Packages | Create</h4>
 
-                        <button onclick="window.location.href='{{ route('admin.job_ads.index') }}'" class="btn btn-icon btn-rounded btn-danger float-right">
+                        <button onclick="window.location.href='{{ route('admin.packages.index') }}'" class="btn btn-icon btn-rounded btn-danger float-right">
                             <i class="fa fa-arrow-right"></i>
                         </button>
                     </div>
-                    <form action="{{ route('admin.job_ads.store') }}" method="POST">
+                    <form action="{{ route('admin.packages.store') }}" method="POST">
                         @csrf
                         @include('admin.packages.form')
                     </form>
