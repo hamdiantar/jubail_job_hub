@@ -14,7 +14,7 @@ class SubscriptionController extends Controller
     public function getMySubscriptions()
     {
         $company = auth('company')->user();
-        $subscriptions = $company->subscriptions;
+        $subscriptions = $company->subscriptions()->latest('sub_id')->limit(1)->get();
 
         return view('company.subscription.my_subscription', compact('subscriptions'));
     }

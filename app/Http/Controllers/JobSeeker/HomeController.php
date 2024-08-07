@@ -15,8 +15,10 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $fiveJobs = JobAdvertisement::where('status', 1)->where('application_deadline', '>=', Carbon::now())
+        $fiveJobs = JobAdvertisement::whereHas('company', function ($q) {$q->where('is_blocked', 0);})
+            ->where('application_deadline', '>=', Carbon::now())
             ->where('is_published', true)
+            ->where('status', 1)
             ->inRandomOrder()
             ->take(5)
             ->get();
@@ -30,11 +32,12 @@ class HomeController extends Controller
 
     public function jobsAds(Request $request)
     {
-        $query = JobAdvertisement::where('status', 1)->latest('job_id')->with('company')->where('application_deadline', '>=', Carbon::now())
+        $query = JobAdvertisement::whereHas('company', function ($q) {
+            $q->where('is_blocked', 0);
+        })->where('status', 1)->latest('job_id')->with('company')->where('application_deadline', '>=', Carbon::now())
             ->where('is_published', true);
         if ($request->filled('category')) {
             $query->whereHas('categories', function ($q) use ($request) {
-//                dd($request->category);
                 $q->where('job_advertisement_categories.job_category_id', $request->category);
             });
         }

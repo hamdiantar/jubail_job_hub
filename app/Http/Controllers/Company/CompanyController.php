@@ -117,9 +117,7 @@ class CompanyController extends Controller
             return redirect()->to(route('company.dashboard'))->with('success', 'Login successful.');
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return back()->with('error' , 'The provided credentials do not match our records.')->onlyInput('email');
     }
 
     // Handle logout

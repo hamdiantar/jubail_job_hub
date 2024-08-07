@@ -25,7 +25,8 @@
                                     <th>ID</th>
                                     <th>Title</th>
                                     <th>Posted Date</th>
-                                    <th>Published?</th>
+                                    <th>Published By Admin?</th>
+                                    <th>Published By Company?</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -35,6 +36,13 @@
                                         <td>{{ $jobAd->job_id }}</td>
                                         <td>{{ $jobAd->job_title }}</td>
                                         <td>{{ $jobAd->posted_date }}</td>
+                                        <td>
+                                            @if($jobAd->status)
+                                                <span class="badge badge-success">Yes</span>
+                                            @else
+                                                <span class="badge badge-danger">No</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             @if($jobAd->is_published)
                                                 <span class="badge badge-success">Yes</span>

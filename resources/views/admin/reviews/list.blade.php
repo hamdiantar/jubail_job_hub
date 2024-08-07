@@ -23,7 +23,7 @@
                                     <select name="job_seeker_id" class="form-control">
                                         <option value="">All Job Seekers</option>
                                         @foreach($jobSeekers as $jobSeeker)
-                                            <option value="{{ $jobSeeker->job_seeker_id }}" {{ request('job_seeker_id') == $jobSeeker->job_seeker_id ? 'selected' : '' }}>{{ $jobSeeker->fullname }}</option>
+                                            <option value="{{ $jobSeeker->job_seeker_id }}" {{ request('job_seeker_id') == $jobSeeker->job_seeker_id ? 'selected' : '' }}>{{ $jobSeeker->username }}</option>
                                         @endforeach
                                     </select>
                                 </div>

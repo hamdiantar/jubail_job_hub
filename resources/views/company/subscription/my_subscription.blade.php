@@ -26,7 +26,7 @@
                                     <th>Period (months)</th>
                                     <th>Subscription Date</th>
                                     <th>Subscription End Date</th>
-                                    <th>Action</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,30 +52,24 @@
                                     </tr>
                                     @if($subscription->payments->isNotEmpty())
                                         <tr>
-                                            <td colspan="6">
-                                                <strong>Payment Details:</strong>
-                                                <table class="table table-bordered mt-2">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Ref Number</th>
-                                                        <th>Amount</th>
-                                                        <th>Payment Date</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
+                                            <th>Ref Number</th>
+                                            <th>Amount</th>
+                                            <th>Payment Date</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
                                                     @foreach($subscription->payments as $payment)
                                                         <tr>
                                                             <td>{{ $payment->ref_number }}</td>
                                                             <td>{{ $payment->amount }} SAR</td>
                                                             <td>{{ $payment->date_time }}</td>
                                                             <td>{{ $payment->status }}</td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
+
                                     @else
                                         <tr>
                                             <td colspan="6"><strong>No Payment Details Available</strong></td>

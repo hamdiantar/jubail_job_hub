@@ -42,7 +42,7 @@
                                                 <a href="{{ route('admin.companies.show', $company->company_id) }}" class="btn btn-link btn-lg" data-toggle="tooltip" title="View">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                @if($company->is_blocked)
+                                                @if($company->is_blocked == 1)
                                                     <form action="{{ route('admin.companies.unblock', $company->company_id) }}" method="POST" style="display: inline-block;" onsubmit="event.preventDefault(); confirmAction('{{ route('admin.companies.unblock', $company->company_id) }}', 'unblock');">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Unblock">

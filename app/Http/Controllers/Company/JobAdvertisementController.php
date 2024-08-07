@@ -108,6 +108,9 @@ class JobAdvertisementController extends Controller
 
     public function destroy(JobAdvertisement $jobAd)
     {
+        if ($jobAd->categories()->exists()) {
+            return redirect()->route('company.job_ads.index')->with('error', 'Job advertisement is related with categories and applications');
+        }
         $jobAd->categories()->delete();
         $jobAd->delete();
         return redirect()->route('company.job_ads.index')->with('success', 'Job advertisement deleted successfully.');

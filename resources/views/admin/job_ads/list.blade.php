@@ -26,7 +26,8 @@
                                     <th>ID</th>
                                     <th>Company</th>
                                     <th>Job Title</th>
-                                    <th>Published</th>
+                                    <th>Published By Admin?</th>
+                                    <th>Published By Company?</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -36,25 +37,39 @@
                                         <td>{{ $job->job_id }}</td>
                                         <td>{{ $job->company->company_name }}</td>
                                         <td><a href="{{ route('job_details', $job->job_id) }}" target="_blank">{{ $job->job_title }}</a></td>
-                                        <td>{{ $job->status ? 'Published' : 'Not Published' }}</td>
+                                        <td>
+                                            @if($job->status)
+                                                <span class="badge badge-success">Yes</span>
+                                            @else
+                                                <span class="badge badge-danger">No</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($job->is_published)
+                                                <span class="badge badge-success">Yes</span>
+                                            @else
+                                                <span class="badge badge-danger">No</span>
+                                            @endif
+
+                                        </td>
                                         <td>
                                             <div class="form-button-action">
-{{--                                                @if(!$job->status)--}}
+                                                @if($job->status == 0)
                                                     <form action="{{ route('admin.job_ads.accept', $job->job_id) }}" method="POST" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-success" data-toggle="tooltip" title="Accept and Publish">
                                                             <i class="fa fa-check"></i>
                                                         </button>
                                                     </form>
-{{--                                                @endif--}}
-{{--                                                @if($job->status)--}}
+                                                @endif
+                                                @if($job->status == 1)
                                                     <form action="{{ route('admin.job_ads.reject', $job->job_id) }}" method="POST" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-link btn-danger" data-toggle="tooltip" title="Reject and Unpublish">
                                                             <i class="fa fa-times"></i>
                                                         </button>
                                                     </form>
-{{--                                                @endif--}}
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
